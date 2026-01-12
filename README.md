@@ -170,24 +170,6 @@ agilebot_isaac_sim/
 
 ---
 
-<<<<<<< HEAD
-=======
-## 🗂️ Agilebot Isaac Simulation Repository Series
-
-This project is part of the Agilebot Robot Isaac ecosystem, providing a complete solution for simulation, training, and asset management.
-
-| Repository Name | Function | Main Content | Link |
-|---------|---------|---------|------|
-| **agilebot_isaac_sim** | Simulation Integration | IsaacSim integration for Agilebot robots, including simulation configurations, setup files, and demo examples. No robot digital assets are included. | [Current Repository](#) |
-| **agilebot_isaac_lab** | Training & Learning | IsaacLab environments and training examples for Agilebot robots, including task definitions and learning pipelines. No robot digital assets are included. | [View Repository](https://github.com/sh-agilebot/agilebot_isaac_lab) |
-| **agilebot_isaac_usd_assets** | Asset Management | Centralized repository maintaining USD files, meshes, and textures for Agilebot robots. | [View Repository](https://github.com/sh-agilebot/agilebot_isaac_usd_assets) |
-
-> 💡 **Usage Note**: Before using this repository, please download the required robot USD digital asset files from **agilebot_isaac_usd_assets**.
-
----
-
-
->>>>>>> 0753545a4182a8bf0fbf8c32de4179d2e410756e
 ## 🚀 Upcoming Features
 
 > This section is automatically synchronized from [CHANGELOG.md](./docs/CHANGELOG.md)
@@ -195,7 +177,6 @@ This project is part of the Agilebot Robot Isaac ecosystem, providing a complete
 - 2D grasping demo
 - 3D grasping demo
 
-<<<<<<< HEAD
 
 
 ---
@@ -238,5 +219,3 @@ This project references camera mount design from [MetaIsaacGrasp](https://github
 © 2025 Shanghai Agilebot Robotics Ltd. All rights reserved.
 
 </div>
-=======
->>>>>>> 0753545a4182a8bf0fbf8c32de4179d2e410756e
