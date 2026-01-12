@@ -1,0 +1,10 @@
+# Default initial positions for GBT_C7A's ros2_control fake system
+
+initial_positions:
+  finger_joint: 0
+  joint_1_2: 0
+  joint_2_3: 0
+  joint_3_4: 0
+  joint_4_5: 0
+  joint_5_6: 0
+  joint_6_7: 0

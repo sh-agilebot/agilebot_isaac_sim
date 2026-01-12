@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: gbt_gripper_description
+    relative_path: urdf/gbt-c7a.urdf
+  srdf:
+    relative_path: config/GBT_C7A.srdf
+  package_settings:
+    author_name: gbt
+    author_email: ""
+    generated_timestamp: 1757485466
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

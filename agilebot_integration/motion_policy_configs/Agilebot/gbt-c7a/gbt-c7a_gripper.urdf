@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="gbt-c7a">
+  <joint name="AssemblerFixedJoint" type="fixed">
+    <origin xyz="0. 0. 0." rpy="0. 0.0000002 1.5707964"/>
+    <parent link="GBT_C7A_link6"/>
+    <child link="ee_link_robotiq_arg2f_base_link"/>
+  </joint>
+  <joint name="finger_joint" type="revolute">
+    <origin xyz="0. -0.030601 0.054905" rpy="-2.2957964 0. -3.1415927"/>
+    <parent link="ee_link_robotiq_arg2f_base_link"/>
+    <child link="left_outer_knuckle"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="0." upper="0.7" effort="200." velocity="1.9999999"/>
+  </joint>
+  <joint name="joint1" type="revolute">
+    <origin xyz="0. 0. 0.178" rpy="0. 0. 0."/>
+    <parent link="GBT_C7A_base_link"/>
+    <child link="GBT_C7A_link1"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-6.2831853" upper="6.2831853" effort="100." velocity="0.9999999"/>
+  </joint>
+  <joint name="joint2" type="revolute">
+    <origin xyz="0. 0.147 0. " rpy="1.5707964 0. 0. "/>
+    <parent link="GBT_C7A_link1"/>
+    <child link="GBT_C7A_link2"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-1.4835297" upper="4.6251225" effort="100." velocity="0.9999999"/>
+  </joint>
+  <joint name="joint3" type="revolute">
+    <origin xyz="0.35 -0. 0.147" rpy="0. 0. 0."/>
+    <parent link="GBT_C7A_link2"/>
+    <child link="GBT_C7A_link3"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-2.879793" upper="2.879793" effort="100." velocity="0.9999999"/>
+  </joint>
+  <joint name="joint4" type="revolute">
+    <origin xyz="0.3117 -0. -0.1233" rpy="0. 0. 0."/>
+    <parent link="GBT_C7A_link3"/>
+    <child link="GBT_C7A_link4"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-1.4835297" upper="4.6251225" effort="100." velocity="0.9999999"/>
+  </joint>
+  <joint name="joint5" type="revolute">
+    <origin xyz="-0.0000001 -0.1233 0. " rpy="1.5707964 0. 0. "/>
+    <parent link="GBT_C7A_link4"/>
+    <child link="GBT_C7A_link5"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-6.2831853" upper="6.2831853" effort="100." velocity="0.9999999"/>
+  </joint>
+  <joint name="joint6" type="revolute">
+    <origin xyz="0. -0.1003 -0. " rpy="1.5707963 0. 0. "/>
+    <parent link="GBT_C7A_link5"/>
+    <child link="GBT_C7A_link6"/>
+    <axis xyz="0. 0. 1."/>
+    <limit lower="-6.2831853" upper="6.2831853" effort="100." velocity="0.9999999"/>
+  </joint>
+  <joint name="left_inner_finger_joint" type="revolute">
+    <origin xyz="0. -0.0999754 -0.0022185" rpy="-0.725 0. 3.1415927"/>
+    <parent link="left_outer_knuckle"/>
+    <child link="left_inner_finger"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-0.14" upper="0.84" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="left_inner_knuckle_joint" type="revolute">
+    <origin xyz="0. -0.0127 0.06142" rpy="2.2957964 0. 0. "/>
+    <parent link="ee_link_robotiq_arg2f_base_link"/>
+    <child link="left_inner_knuckle"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-0.84" upper="0.14" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="right_inner_finger_joint" type="revolute">
+    <origin xyz="0. 0.0999754 -0.0022185" rpy="-0.725 0. 0. "/>
+    <parent link="right_outer_knuckle"/>
+    <child link="right_inner_finger"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-0.14" upper="0.84" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="right_inner_knuckle_joint" type="revolute">
+    <origin xyz="0. 0.0127 0.06142" rpy="2.2957964 0. 3.1415925"/>
+    <parent link="ee_link_robotiq_arg2f_base_link"/>
+    <child link="right_inner_knuckle"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-0.84" upper="0.14" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="right_outer_knuckle_joint" type="revolute">
+    <origin xyz="0. 0.030601 0.054905" rpy="2.2957964 0. -3.1415925"/>
+    <parent link="ee_link_robotiq_arg2f_base_link"/>
+    <child link="right_outer_knuckle"/>
+    <axis xyz="1. 0. 0."/>
+    <limit lower="-0.84" upper="0.14" effort="0." velocity="17453.2925199"/>
+  </joint>
+  <joint name="root_joint" type="fixed">
+    <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+    <parent link="GBT_C7A"/>
+    <child link="GBT_C7A_base_link"/>
+  </joint>
+  <link name="GBT_C7A"/>
+  <link name="GBT_C7A_base_link">
+    <inertial>
+      <origin xyz="-0.0000053 -0.0098127 0.0491108" rpy="0. 0. 0."/>
+      <mass value="9.1604033"/>
+      <inertia ixx="0.0419458" ixy="0.0000103" ixz="-0.0000012" iyy="0.0160795" iyz="-0.0041521" izz="0.0465551"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_base_link_visuals_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_base_link_collisions_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_base_link_collisions_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="GBT_C7A_link1">
+    <inertial>
+      <origin xyz="-0.0000002 0.0039863 0.082573 " rpy="0. 0. 0."/>
+      <mass value="15.1750002"/>
+      <inertia ixx="0.047239" ixy="-0." ixz="0.0000006" iyy="0.045942" iyz="-0.0001007" izz="0.029088"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link1_visuals_link1_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link1_collisions_link1_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link1_collisions_link1_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="GBT_C7A_link2">
+    <inertial>
+      <origin xyz="0.175 -0.0000002 0.082978 " rpy="0. 0. 0."/>
+      <mass value="42.4059982"/>
+      <inertia ixx="0.10612" ixy="0.0000027" ixz="0.0000019" iyy="1.0509" iyz="0.0000009" izz="1.0146"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link2_visuals_link2_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link2_collisions_link2_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link2_collisions_link2_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="GBT_C7A_link3">
+    <inertial>
+      <origin xyz="-0.14241 0.0000006 0.056555 " rpy="0. 0. 0."/>
+      <mass value="22.4939995"/>
+      <inertia ixx="0.03219" ixy="0." ixz="0.014535" iyy="0.36351" iyz="0." izz="0.35645"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0. -0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link3_visuals_link3_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0. -0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link3_collisions_link3_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0. -0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link3_collisions_link3_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="GBT_C7A_link4">
+    <inertial>
+      <origin xyz="0.0000001 0.0036933 0.046819 " rpy="0. 0. 0."/>
+      <mass value="5.9624"/>
+      <inertia ixx="0.01117" ixy="0.0000001" ixz="0." iyy="0.0057359" iyz="-0.0001193" izz="0.010395"/>
+    </inertial>
+    <visual>
+      <origin xyz="-0.0000001 -0. 0. " rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link4_visuals_link4_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="-0.0000001 -0. 0. " rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link4_collisions_link4_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="-0.0000001 -0. 0. " rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link4_collisions_link4_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="GBT_C7A_link5">
+    <inertial>
+      <origin xyz="0.0000001 -0.0008363 -0.04715 " rpy="0. 0. 0."/>
+      <mass value="6.3691001"/>
+      <inertia ixx="0.013244" ixy="0.0000001" ixz="0." iyy="0.0060649" iyz="-0.0000195" izz="0.012458"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0. -0." rpy="-0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link5_visuals_link5_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. -0. -0." rpy="-0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link5_collisions_link5_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0. -0." rpy="-0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link5_collisions_link5_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="GBT_C7A_link6">
+    <inertial>
+      <origin xyz="0. 0.0001743 0.012497 " rpy="0. 0. 0."/>
+      <mass value="1.0139"/>
+      <inertia ixx="0.000462" ixy="0." ixz="0." iyy="0.0004676" iyz="-0.0000001" izz="0.0008029"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link6_visuals_link6_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link6_collisions_link6_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="-0.0000002 0. 0. "/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/GBT_C7A_link6_collisions_link6_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="ee_link_robotiq_arg2f_base_link">
+    <inertial>
+      <origin xyz="0.0000001 -0.0000047 0.03145 " rpy="0. 0. 0."/>
+      <mass value="0.22652"/>
+      <inertia ixx="0.0002" ixy="-0." ixz="-0." iyy="0.0001783" iyz="-0." izz="0.0001348"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/ee_link_robotiq_arg2f_base_link_visuals_robotiq_arg2f_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/ee_link_robotiq_arg2f_base_link_collisions_robotiq_arg2f_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/ee_link_robotiq_arg2f_base_link_collisions_robotiq_arg2f_base_link_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_inner_finger">
+    <inertial>
+      <origin xyz="0.0003 0.0160078 -0.0136946" rpy="0. 0. 0."/>
+      <mass value="0.0104003"/>
+      <inertia ixx="0.0000027" ixy="0." ixz="0." iyy="0.0000008" iyz="0.0000007" izz="0.0000023"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. -0. 0." rpy="-0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_inner_finger_visuals_robotiq_arg2f_140_inner_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0.0457554 -0.0272203" rpy="-0. 0. 0."/>
+      <geometry>
+        <box size="0.027 0.065 0.0075"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. -0. 0." rpy="-0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_inner_finger_collisions_robotiq_arg2f_140_inner_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0.0457554 -0.0272203" rpy="-0. 0. 0."/>
+      <geometry>
+        <box size="0.03 0.07 0.0075"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. -0. 0." rpy="-0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_inner_finger_collisions_robotiq_arg2f_140_inner_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0.0457554 -0.0272203" rpy="-0. 0. 0."/>
+      <geometry>
+        <box size="0.03 0.07 0.0075"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_inner_knuckle">
+    <inertial>
+      <origin xyz="0.000123 0.0507851 0.0010397" rpy="0. 0. 0."/>
+      <mass value="0.0271177"/>
+      <inertia ixx="0.0000262" ixy="-0.0000002" ixz="-0." iyy="0.0000028" iyz="-0.0000005" izz="0.0000284"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="-0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_inner_knuckle_visuals_robotiq_arg2f_140_inner_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="-0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_inner_knuckle_collisions_robotiq_arg2f_140_inner_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="-0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_inner_knuckle_collisions_robotiq_arg2f_140_inner_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="left_outer_knuckle">
+    <inertial>
+      <origin xyz="0.0001639 0.0458404 0.0117804" rpy="0. 0. 0."/>
+      <mass value="0.0311462"/>
+      <inertia ixx="0.0000296" ixy="-0.0000001" ixz="0.0000001" iyy="0.0000116" iyz="0.0000109" izz="0.0000208"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="-0. 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_outer_knuckle_visuals_robotiq_arg2f_140_outer_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. -0.01822 0.0260018" rpy="-0. 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_outer_knuckle_visuals_robotiq_arg2f_140_outer_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="-0. 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_outer_knuckle_collisions_robotiq_arg2f_140_outer_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. -0.01822 0.0260018" rpy="-0. 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_outer_knuckle_collisions_robotiq_arg2f_140_outer_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="-0. 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_outer_knuckle_collisions_robotiq_arg2f_140_outer_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. -0.01822 0.0260018" rpy="-0. 0. 3.1415927"/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/left_outer_knuckle_collisions_robotiq_arg2f_140_outer_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_inner_finger">
+    <inertial>
+      <origin xyz="0.0003 0.0160078 -0.0136946" rpy="0. 0. 0."/>
+      <mass value="0.0104003"/>
+      <inertia ixx="0.0000027" ixy="0." ixz="0." iyy="0.0000008" iyz="0.0000007" izz="0.0000023"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_inner_finger_visuals_robotiq_arg2f_140_inner_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0.0457554 -0.0272203" rpy="0. 0. 0."/>
+      <geometry>
+        <box size="0.027 0.065 0.0075"/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_inner_finger_collisions_robotiq_arg2f_140_inner_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0.0457554 -0.0272203" rpy="0. 0. 0."/>
+      <geometry>
+        <box size="0.03 0.07 0.0075"/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_inner_finger_collisions_robotiq_arg2f_140_inner_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0.0457554 -0.0272203" rpy="0. 0. 0."/>
+      <geometry>
+        <box size="0.03 0.07 0.0075"/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_inner_knuckle">
+    <inertial>
+      <origin xyz="0.000123 0.0507851 0.0010397" rpy="0. 0. 0."/>
+      <mass value="0.0271177"/>
+      <inertia ixx="0.0000262" ixy="-0.0000002" ixz="-0." iyy="0.0000028" iyz="-0.0000005" izz="0.0000284"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_inner_knuckle_visuals_robotiq_arg2f_140_inner_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_inner_knuckle_collisions_robotiq_arg2f_140_inner_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_inner_knuckle_collisions_robotiq_arg2f_140_inner_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+  <link name="right_outer_knuckle">
+    <inertial>
+      <origin xyz="0.0001639 0.0458404 0.0117804" rpy="0. 0. 0."/>
+      <mass value="0.0311462"/>
+      <inertia ixx="0.0000296" ixy="-0.0000001" ixz="0.0000001" iyy="0.0000116" iyz="0.0000109" izz="0.0000208"/>
+    </inertial>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_outer_knuckle_visuals_robotiq_arg2f_140_outer_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0.01822 0.0260018" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_outer_knuckle_visuals_robotiq_arg2f_140_outer_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_outer_knuckle_collisions_robotiq_arg2f_140_outer_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <visual>
+      <origin xyz="0. 0.01822 0.0260018" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_outer_knuckle_collisions_robotiq_arg2f_140_outer_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </visual>
+    <collision>
+      <origin xyz="0. 0. 0." rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_outer_knuckle_collisions_robotiq_arg2f_140_outer_knuckle_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+    <collision>
+      <origin xyz="0. 0.01822 0.0260018" rpy="0. 0. 0."/>
+      <geometry>
+        <mesh filename="file:///home/gbt/ws/usd/gbt_c7a_gripper/meshes/right_outer_knuckle_collisions_robotiq_arg2f_140_outer_finger_mesh.obj" scale="1. 1. 1."/>
+      </geometry>
+    </collision>
+  </link>
+</robot>

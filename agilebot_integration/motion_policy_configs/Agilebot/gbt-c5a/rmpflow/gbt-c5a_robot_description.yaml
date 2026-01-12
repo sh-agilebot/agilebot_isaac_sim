@@ -1,0 +1,95 @@
+# The robot description defines the generalized coordinates and how to map those
+# to the underlying URDF dofs.
+
+api_version: 1.0
+
+# Defines the generalized coordinates. Each generalized coordinate is assumed
+# to have an entry in the URDF.
+# Lula will only use these joints to control the robot position.
+cspace:
+    - joint1
+    - joint2
+    - joint3
+    - joint4
+    - joint5
+    - joint6
+default_q: [
+    0.0,0.0,-0.0,-0.0,0.0,0.0
+]
+
+acceleration_limits: [
+   10,10,10,10,10,10
+]
+
+jerk_limits: [
+   10000,10000,10000,10000,10000,10000
+]
+
+# Most dimensions of the cspace have a direct corresponding element
+# in the URDF. This list of rules defines how unspecified coordinates
+# should be extracted or how values in the URDF should be overwritten.
+
+
+
+# Lula uses collision spheres to define the robot geometry in order to avoid
+# collisions with external obstacles.  If no spheres are specified, Lula will
+# not be able to avoid obstacles.
+
+collision_spheres:
+  - link1:
+    - "center": [0.0, 0.0, 0.0]
+      "radius": 0.09
+    - "center": [-0.0, -0.0, 0.022]
+      "radius": 0.09
+  - link2:
+    - "center": [0.0, 0.0, 0.0]
+      "radius": 0.09
+    - "center": [0.409, 0.0, -0.042]
+      "radius": 0.09
+    - "center": [0.05, 0.0, 0.0]
+      "radius": 0.07
+    - "center": [0.1, 0.0, 0.0]
+      "radius": 0.07
+    - "center": [0.151, 0.0, 0.0]
+      "radius": 0.07
+    - "center": [0.201, 0.0, 0.0]
+      "radius": 0.07
+    - "center": [0.251, 0.0, 0.0]
+      "radius": 0.07
+    - "center": [0.301, 0.0, 0.0]
+      "radius": 0.07
+    - "center": [0.351, 0.0, 0.0]
+      "radius": 0.07
+  - link3:
+    - "center": [0.019, 0.0, 0.059]
+      "radius": 0.08
+    - "center": [0.372, 0.0, 0.083]
+      "radius": 0.07
+    - "center": [0.063, 0.0, 0.059]
+      "radius": 0.06
+    - "center": [0.108, 0.0, 0.058]
+      "radius": 0.06
+    - "center": [0.152, 0.0, 0.058]
+      "radius": 0.06
+    - "center": [0.196, 0.0, 0.058]
+      "radius": 0.06
+    - "center": [0.24, 0.0, 0.057]
+      "radius": 0.06
+    - "center": [0.284, 0.0, 0.057]
+      "radius": 0.06
+    - "center": [0.328, 0.0, 0.057]
+      "radius": 0.06
+  - link4:
+    - "center": [-0.0, 0.023, -0.0]
+      "radius": 0.06
+    - "center": [0.0, -0.019, 0.0]
+      "radius": 0.06
+  - link5:
+    - "center": [0.0, 0.028, -0.0]
+      "radius": 0.06
+    - "center": [-0.0, -0.016, 0.0]
+      "radius": 0.06
+  - link6:
+    - "center": [0.0, -0.0, -0.002]
+      "radius": 0.05
+ 

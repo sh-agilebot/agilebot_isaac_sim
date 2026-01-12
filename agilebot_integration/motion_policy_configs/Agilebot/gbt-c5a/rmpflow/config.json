@@ -1,0 +1,10 @@
+{
+    "end_effector_frame_name": "ee_link_robotiq_arg2f_base_link",
+    "maximum_substep_size" : 0.00334,
+    "ignore_robot_state_updates" : false,
+    "relative_asset_paths": {
+        "robot_description_path" : "gbt_c5a_robot_description.yaml",
+        "urdf_path": "../gbt_c5a_gripper.urdf",
+        "rmpflow_config_path" : "gbt_c5a_rmpflow_config.yaml"
+    }
+}

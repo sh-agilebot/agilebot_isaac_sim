@@ -1,0 +1,47 @@
+name: Sync Changelog to README
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - 'docs/CHANGELOG.md'
+      - 'docs/CHANGELOG_CN.md'
+      - '.github/scripts/sync_changelog.py'
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  sync-changelog:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+    
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: '3.11'
+    
+    - name: Sync Changelog to README
+      run: |
+        python .github/scripts/sync_changelog.py
+    
+    - name: Show changes
+      run: |
+        echo "Files changed:"
+        git status
+    
+    - name: Commit changes
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        
+        if [[ -n $(git status --porcelain) ]]; then
+          git add README.md README_cn.md
+          git commit -m "chore: sync planned features from CHANGELOG to README [skip ci]"
+          git push
+        else
+          echo "No changes to commit"
+        fi
