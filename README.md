@@ -214,8 +214,6 @@ This project references camera mount design from [MetaIsaacGrasp](https://github
 
 <div align="center">
 
-**[Shanghai Agilebot Robotics Ltd.](https://www.sh-agilebot.com/)**
-
 © 2025 Shanghai Agilebot Robotics Ltd. All rights reserved.
 
 </div>

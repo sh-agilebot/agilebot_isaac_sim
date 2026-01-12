@@ -212,8 +212,6 @@ agilebot_isaac_sim/
 
 <div align="center">
 
-**[上海捷勃特机器人有限公司](https://www.sh-agilebot.com/)**
-
 © 2025 Shanghai Agilebot Robotics Ltd. All rights reserved.
 
 </div>
