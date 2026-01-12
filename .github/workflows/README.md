@@ -6,7 +6,7 @@ This directory contains GitHub Actions workflow files for the Agilebot Isaac Sim
 
 ### sync-changelog.yml
 
-**Purpose**: Automatically synchronizes planned features from `CHANGELOG.md` and `CHANGELOG_CN.md` to `README.md` and `README_cn.md` files.
+**Purpose**: Automatically synchronizes planned features from `CHANGELOG.md` and `CHANGELOG_CN.md` to `README.md` and `README_CN.md` files.
 
 **Trigger**:
 - Automatic: When `CHANGELOG.md` or `CHANGELOG_CN.md` is pushed to `main` or `master` branch
@@ -36,7 +36,7 @@ Located in `.github/scripts/` directory.
 **Features**:
 - ✅ Extracts planned features from CHANGELOG.md
 - ✅ Generates English version for README.md
-- ✅ Generates Chinese version for README_cn.md
+- ✅ Generates Chinese version for README_CN.md
 - ✅ Preserves existing formatting
 - ✅ Provides detailed progress and error messages
 - ✅ Handles UTF-8 encoding properly
@@ -106,7 +106,7 @@ The workflow will automatically:
 
 **Check**:
 - CHANGELOG.md has correct format with `### Planned` section
-- Repository has both README.md and README_cn.md
+- Repository has both README.md and README_CN.md
 - Python version is 3.11 (required)
 
 ---

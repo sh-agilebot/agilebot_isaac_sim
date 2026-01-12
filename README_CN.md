@@ -1,17 +1,3 @@
----
-library_name: isaac-sim
-tags:
-- robotics
-- isaac-sim
-- manipulator
-- pick-and-place
-- robot-control
-- agilebot
-- rmpflow
-- moveit
-license: apache-2.0
----
-
 # 🤖 Agilebot Isaac Sim
 
 <div align="left">
@@ -23,13 +9,11 @@ license: apache-2.0
 
 ---
 
-
-</div>
-
-<div align="right">
-
 [中文](#) | **[English](./readme.md)**
+
 </div>
+
+
 
 
 ---
@@ -118,9 +102,9 @@ cp -r agilebot_integration/code/agilebot \
 
 详细的使用说明、命令行参数和配置示例，请查阅：
 
-- 📖 **[GBT Robot Examples 文档](./agilebot_integration/demos/README_cn.md)** - 所有演示示例的完整指南
-- 🔧 **[MoveIt 集成指南](./example/isaacsim_moveit/readme_cn.md)** - ROS 2 + MoveIt 控制教程
-- 📷 **[相机抓取任务文档](./example/pick_place_agilebot_camera_gripper/readme_cn.md)** - 基于视觉抓取的实现说明
+- 📖 **[GBT Robot Examples 文档](./agilebot_integration/demos/README_CN.md)** - 所有演示示例的完整指南
+- 🔧 **[MoveIt 集成指南](./example/isaacsim_moveit/README_CN.md)** - ROS 2 + MoveIt 控制教程
+- 📷 **[相机抓取任务文档](./example/pick_place_agilebot_camera_gripper/README_CN.md)** - 基于视觉抓取的实现说明
 
 ---
 
@@ -197,14 +181,10 @@ isaacsim/
 
 ## 🚀 即将推出的功能
 
-> 本部分从 [CHANGELOG.md](./CHANGELOG.md) 自动同步
+> 本部分从 [docs/CHANGELOG_CN.md](./docs/CHANGELOG_CN.md) 自动同步
 
-- 添加更多机器人型号支持（gbt-c5x 系列）
-- 实现高级抓取算法
-- 添加更多机器人型号的 ROS 2 集成示例
-- 增强错误处理和日志记录
-- 为所有演示添加视频录制支持
-- 创建全面的单元测试
+- 2D 抓取演示
+- 3D 抓取演示
 
 ---
 
@@ -212,9 +192,9 @@ isaacsim/
 
 各模块的详细文档和示例说明：
 
-- 📖 [GBT Robot Examples - 演示文档](./agilebot_integration/demos/README_cn.md) - 包含堆垛、抓取、跟随、运动学验证等所有演示的详细说明
-- 🔧 [MoveIt 集成指南](./example/isaacsim_moveit/readme_cn.md) - 使用 ROS 2 + MoveIt 控制 IsaacSim 中的机器人的完整教程
-- 📷 [相机抓取任务文档](./example/pick_place_agilebot_camera_gripper/readme_cn.md) - 带手腕相机的抓取任务实现说明
+- 📖 [GBT Robot Examples - 演示文档](./agilebot_integration/demos/README_CN.md) - 包含堆垛、抓取、跟随、运动学验证等所有演示的详细说明
+- 🔧 [MoveIt 集成指南](./example/isaacsim_moveit/README_CN.md) - 使用 ROS 2 + MoveIt 控制 IsaacSim 中的机器人的完整教程
+- 📷 [相机抓取任务文档](./example/pick_place_agilebot_camera_gripper/README_CN.md) - 带手腕相机的抓取任务实现说明
 
 ---
 

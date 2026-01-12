@@ -9,7 +9,7 @@
 
 ---
 
- **[中文](./readme_cn.md)** | [English](./readme.md)
+ **[中文](./README_CN.md)** | [English](./README.md)
 
 </div>
 
@@ -177,14 +177,10 @@ This project is part of the Agilebot Robot Isaac ecosystem, providing a complete
 
 ## 🚀 Upcoming Features
 
-> This section is automatically synchronized from [CHANGELOG.md](./CHANGELOG.md)
+> This section is automatically synchronized from [docs/CHANGELOG.md](./docs/CHANGELOG.md)
 
-- Add more robot models support (gbt-c5x series)
-- Implement advanced grasping algorithms
-- Add ROS 2 integration examples for more robot models
-- Enhance error handling and logging
-- Add video recording support for all demos
-- Create comprehensive unit tests
+- 2D grasping demo
+- 3D grasping demo
 
 ---
 

@@ -166,7 +166,7 @@ def main():
     changelog_en_path = os.path.join(docs_dir, 'CHANGELOG.md')
     changelog_cn_path = os.path.join(docs_dir, 'CHANGELOG_CN.md')
     readme_en_path = os.path.join(repo_root, 'README.md')
-    readme_cn_path = os.path.join(repo_root, 'README_cn.md')
+    readme_cn_path = os.path.join(repo_root, 'README_CN.md')
 
     print("🚀 Starting Changelog Synchronization...")
     print(f"📁 Repository root: {repo_root}")
@@ -221,7 +221,7 @@ def main():
     print("\n✅ Synchronization completed successfully!")
     print("\n📝 Note: Please review the changes before committing:")
     print("   git diff README.md")
-    print("   git diff README_cn.md")
+    print("   git diff README_CN.md")
 
 
 if __name__ == "__main__":

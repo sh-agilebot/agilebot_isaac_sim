@@ -39,7 +39,7 @@ jobs:
         git config --local user.name "GitHub Action"
         
         if [[ -n $(git status --porcelain) ]]; then
-          git add README.md README_cn.md
+          git add README.md README_CN.md
           git commit -m "chore: sync planned features from CHANGELOG to README [skip ci]"
           git push
         else

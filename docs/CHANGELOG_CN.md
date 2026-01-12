@@ -49,7 +49,7 @@
   - 添加了 Isaac Lab 资源缓存配置
 - 更新了演示脚本，移除 `--help` 命令（避免被 Isaac 拦截）
 - 同步了中英文文档
-- 更新了 README 和 README_cn.md，添加到环境配置指南的链接
+- 更新了 README 和 README_CN.md，添加到环境配置指南的链接
 - 增强了 README，添加环境设置前置条件
 
 ### 已弃用
@@ -97,7 +97,7 @@
 - 推送 CHANGELOG.md 或 CHANGELOG_CN.md 时自动触发
 - 从 CHANGELOG 文件中读取 `### 计划中` 部分
 - 更新 README.md 中的"即将推出的功能"部分
-- 更新 README_cn.md 中的"Upcoming Features"部分
+- 更新 README_CN.md 中的"Upcoming Features"部分
 - 支持英文和中文两个版本
 - 保留现有格式
 - 自动提交更改（跳过 CI 以避免递归触发）

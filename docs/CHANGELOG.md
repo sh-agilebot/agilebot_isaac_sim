@@ -49,7 +49,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
   - Added Isaac Lab asset caching configuration
 - Updated demo scripts to remove `--help` commands (avoids Isaac interception)
 - Synchronized Chinese and English documentation
-- Updated README and README_cn.md to link to environment configuration guides
+- Updated README and README_CN.md to link to environment configuration guides
 - Enhanced README with environment setup prerequisites
 
 ### Deprecated
@@ -97,7 +97,7 @@ The repository includes GitHub Actions workflows (`.github/workflows/sync-change
 - Automatically trigger when CHANGELOG.md or CHANGELOG_CN.md is pushed
 - Reads the `### Planned` section from CHANGELOG files
 - Updates "Upcoming Features" section in README.md
-- Updates "即将推出的功能" section in README_cn.md
+- Updates "即将推出的功能" section in README_CN.md
 - Supports both English and Chinese versions
 - Preserves existing formatting
 - Auto-commits changes (skips CI to avoid recursive triggers)

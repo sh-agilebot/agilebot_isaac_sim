@@ -6,7 +6,7 @@
 
 ### sync-changelog.yml
 
-**目的**：自动将 `CHANGELOG.md` 或 `CHANGELOG_CN.md` 中的计划功能同步到 `README.md` 和 `README_cn.md` 文件。
+**目的**：自动将 `CHANGELOG.md` 或 `CHANGELOG_CN.md` 中的计划功能同步到 `README.md` 和 `README_CN.md` 文件。
 
 **触发方式**：
 - 自动：当 `CHANGELOG.md` 或 `CHANGELOG_CN.md` 被推送到 `main` 或 `master` 分支时
@@ -36,7 +36,7 @@
 **功能特性**：
 - ✅ 从 CHANGELOG.md 或 CHANGELOG_CN.md 提取计划功能
 - ✅ 为 README.md 生成英文版本
-- ✅ 为 README_cn.md 生成中文版本
+- ✅ 为 README_CN.md 生成中文版本
 - ✅ 保留现有格式
 - ✅ 提供详细的进度和错误消息
 - ✅ 正确处理 UTF-8 编码
@@ -114,7 +114,7 @@ git push
 
 **检查**：
 - CHANGELOG.md 具有正确的 `### Planned` 部分格式
-- 仓库同时存在 README.md 和 README_cn.md
+- 仓库同时存在 README.md 和 README_CN.md
 - Python 版本是 3.11（必需）
 
 ---
