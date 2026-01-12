@@ -21,9 +21,7 @@
 
 **agilebot_isaac_sim** is the simulation integration repository in the Agilebot Robot Isaac ecosystem, providing a complete solution for integrating Agilebot series robots into NVIDIA IsaacSim simulation environment, including core control code, motion policy configurations, and rich example demonstrations.
 
-### About Agilebot
-
-[Shanghai Agilebot Robotics Ltd.](https://www.sh-agilebot.com/) is a high-tech enterprise specializing in industrial robot R&D, manufacturing, and intelligent manufacturing solutions. With proprietary **Single-Chip Multi-Axis Drive-Control Integrated Motion Controller (SCIMC)** technology at its core, Agilebot is committed to providing high-performance, cost-effective, and user-friendly robot products and solutions for various industries. The product line includes 6-axis industrial robots, SCARA robots, collaborative robots, and intelligent magnetic drive systems, serving industries such as new energy, automotive components, consumer electronics, pharmaceuticals, and food & beverage.
+This project is developed and maintained by [Shanghai Agilebot Robotics Ltd.](https://www.sh-agilebot.com/). Agilebot is a high-tech enterprise specializing in industrial robot R&D, manufacturing, and intelligent manufacturing solutions. With proprietary **Single-Chip Multi-Axis Drive-Control Integrated Motion Controller (SCIMC)** technology at its core, Agilebot provides high-performance, cost-effective, and user-friendly robot products and intelligent manufacturing solutions for various industries.
 
 ### ✨ Key Features
 
@@ -82,6 +80,20 @@ Supported robot models:
 
 ---
 
+## 🗂️ Agilebot Isaac Simulation Repository Series
+
+This project is part of Agilebot Robot Isaac ecosystem, providing a complete solution for simulation, training, and asset management.
+
+| Repository Name | Function | Main Content | Link |
+|---------|---------|---------|------|
+| **agilebot_isaac_sim** | Simulation Integration | IsaacSim integration for Agilebot robots, including simulation configurations, setup files, and demo examples. No robot digital assets are included. | [Current Repository](#) |
+| **agilebot_isaac_lab** | Training & Learning | IsaacLab environments and training examples for Agilebot robots, including task definitions and learning pipelines. No robot digital assets are included. | [View Repository](https://github.com/sh-agilebot/agilebot_isaac_lab) |
+| **agilebot_isaac_usd_assets** | Asset Management | Centralized repository maintaining USD files, meshes, and textures for Agilebot robots. | [View Repository](https://github.com/sh-agilebot/agilebot_isaac_usd_assets) |
+
+> 💡 **Usage Note**: Before using this repository, please download the required robot USD digital asset files from **agilebot_isaac_usd_assets**.
+
+---
+
 ## 💡 Usage Examples
 
 This repository provides comprehensive demonstration examples covering multiple robot tasks and integration scenarios:
@@ -97,10 +109,7 @@ This repository provides comprehensive demonstration examples covering multiple 
 | **MoveIt Control** | ROS 2 + MoveIt integration | gbt-c7a | ROS 2 interface, MoveIt planning |
 | **Camera Grasping** | Vision-based grasping with recording | Full asset (arm+gripper+camera) | Camera feedback, video recording (30fps) |
 
-### 🔗 Detailed Documentation
-
-For detailed usage instructions, command-line parameters, and configuration examples, please refer to:
-
+**Detailed Documentation:**
 - 📖 **[GBT Robot Examples Documentation](./agilebot_integration/demos/README.md)** - Complete guide for all demonstration examples
 - 🔧 **[MoveIt Integration Guide](./example/isaacsim_moveit/readme.md)** - ROS 2 + MoveIt control tutorial
 - 📷 **[Camera Grasping Task Guide](./example/pick_place_agilebot_camera_gripper/readme.md)** - Vision-based grasping implementation
@@ -132,7 +141,7 @@ For detailed usage instructions, command-line parameters, and configuration exam
 ## 📁 Project Structure
 
 ```
-isaacsim/
+agilebot_isaac_sim/
 ├── agilebot_integration/          # Agilebot integration code and demos
 │   ├── code/agilebot/            # Core code
 │   │   ├── controllers/          # Controllers (grasping, stacking, etc.)
@@ -161,20 +170,6 @@ isaacsim/
 
 ---
 
-## 🗂️ Agilebot Isaac Simulation Repository Series
-
-This project is part of the Agilebot Robot Isaac ecosystem, providing a complete solution for simulation, training, and asset management.
-
-| Repository Name | Function | Main Content | Link |
-|---------|---------|---------|------|
-| **agilebot_isaac_sim** | Simulation Integration | IsaacSim integration for Agilebot robots, including simulation configurations, setup files, and demo examples. No robot digital assets are included. | [Current Repository](#) |
-| **agilebot_isaac_lab** | Training & Learning | IsaacLab environments and training examples for Agilebot robots, including task definitions and learning pipelines. No robot digital assets are included. | [View Repository](https://github.com/sh-agilebot/agilebot_isaac_lab) |
-| **agilebot_isaac_usd_assets** | Asset Management | Centralized repository maintaining USD files, meshes, and textures for Agilebot robots. | [View Repository](https://github.com/sh-agilebot/agilebot_isaac_usd_assets) |
-
-> 💡 **Usage Note**: Before using this repository, please download the required robot USD digital asset files from **agilebot_isaac_usd_assets**.
-
----
-
 ## 🚀 Upcoming Features
 
 > This section is automatically synchronized from [docs/CHANGELOG.md](./docs/CHANGELOG.md)
@@ -182,15 +177,7 @@ This project is part of the Agilebot Robot Isaac ecosystem, providing a complete
 - 2D grasping demo
 - 3D grasping demo
 
----
 
-## 📚 Detailed Documentation
-
-Detailed documentation and examples for each module:
-
-- 📖 [GBT Robot Examples - Demo Documentation](./agilebot_integration/demos/README.md) - Detailed explanations of all demos including stacking, picking, following, and kinematics verification
-- 🔧 [MoveIt Integration Guide](./example/isaacsim_moveit/readme.md) - Complete tutorial for using ROS 2 + MoveIt to control robots in IsaacSim
-- 📷 [Camera Grasping Task Documentation](./example/pick_place_agilebot_camera_gripper/readme.md) - Wrist-mounted camera grasping task implementation
 
 ---
 
