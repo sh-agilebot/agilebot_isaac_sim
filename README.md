@@ -1,18 +1,4 @@
----
-library_name: isaac-sim
-tags:
-- robotics
-- isaac-sim
-- manipulator
-- pick-and-place
-- robot-control
-- agilebot
-- rmpflow
-- moveit
-license: apache-2.0
----
 
----
 
 # 🤖 Agilebot Isaac Sim
 
@@ -23,15 +9,11 @@ license: apache-2.0
 
 ---
 
-
+ **[中文](./readme_cn.md)** | [English](./readme.md)
 
 </div>
 
-<div align="right">
 
-  **[中文](./readme_cn.md)** | [English](./readme.md)
-  
-</div>
 
 ---
 
