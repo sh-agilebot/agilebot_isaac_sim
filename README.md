@@ -175,60 +175,11 @@ This project is part of the Agilebot Robot Isaac ecosystem, providing a complete
 
 ---
 
+
 ## 🚀 Upcoming Features
 
-> This section is automatically synchronized from [docs/CHANGELOG.md](./docs/CHANGELOG.md)
+> This section is automatically synchronized from [CHANGELOG.md](./docs/CHANGELOG.md)
 
 - 2D grasping demo
 - 3D grasping demo
 
----
-
-## 📚 Detailed Documentation
-
-Detailed documentation and examples for each module:
-
-- 📖 [GBT Robot Examples - Demo Documentation](./agilebot_integration/demos/README.md) - Detailed explanations of all demos including stacking, picking, following, and kinematics verification
-- 🔧 [MoveIt Integration Guide](./example/isaacsim_moveit/readme.md) - Complete tutorial for using ROS 2 + MoveIt to control robots in IsaacSim
-- 📷 [Camera Grasping Task Documentation](./example/pick_place_agilebot_camera_gripper/readme.md) - Wrist-mounted camera grasping task implementation
-
----
-
-## 🔗 Related Resources
-
-### Official Resources
-- [Agilebot Website](https://www.sh-agilebot.com/)
-- [IsaacSim Official Documentation](https://docs.omniverse.nvidia.com/isaacsim/)
-
-### Agilebot Isaac Ecosystem Repositories
-- [agilebot_isaac_usd_assets](https://github.com/sh-agilebot/agilebot_isaac_usd_assets) - Robot digital assets repository (USD files, meshes, textures)
-- [agilebot_isaac_lab](https://github.com/sh-agilebot/agilebot_isaac_lab) - IsaacLab environments and training examples
-- [agilebot_isaac_sim](https://github.com/sh-agilebot/agilebot_isaac_sim) - Current repository, IsaacSim integration
-
----
-
-## 🤝 Contributing
-
-Issues and Pull Requests are welcome!
-
----
-
-## 📄 License
-
-This project is licensed under the [Apache License 2.0](LICENSE). See LICENSE file for details.
-
----
-
-## 🙏 Acknowledgments
-
-This project references camera mount design from [MetaIsaacGrasp](https://github.com/YitianShi/MetaIsaacGrasp), licensed under MIT License.
-
----
-
-<div align="center">
-
-**[Shanghai Agilebot Robotics Ltd.](https://www.sh-agilebot.com/)**
-
-© 2025 Shanghai Agilebot Robotics Ltd. All rights reserved.
-
-</div>

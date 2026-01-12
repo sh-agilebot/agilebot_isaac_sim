@@ -179,60 +179,11 @@ isaacsim/
 
 ---
 
+
 ## 🚀 即将推出的功能
 
-> 本部分从 [docs/CHANGELOG_CN.md](./docs/CHANGELOG_CN.md) 自动同步
+> 本部分从 [CHANGELOG_CN.md](./docs/CHANGELOG_CN.md) 自动同步
 
-- 2D 抓取演示
-- 3D 抓取演示
+- 2D grasping demo
+- 3D grasping demo
 
----
-
-## 📚 详细文档
-
-各模块的详细文档和示例说明：
-
-- 📖 [GBT Robot Examples - 演示文档](./agilebot_integration/demos/README_CN.md) - 包含堆垛、抓取、跟随、运动学验证等所有演示的详细说明
-- 🔧 [MoveIt 集成指南](./example/isaacsim_moveit/README_CN.md) - 使用 ROS 2 + MoveIt 控制 IsaacSim 中的机器人的完整教程
-- 📷 [相机抓取任务文档](./example/pick_place_agilebot_camera_gripper/README_CN.md) - 带手腕相机的抓取任务实现说明
-
----
-
-## 🔗 相关资源
-
-### 官方资源
-- [Agilebot 官网](https://www.sh-agilebot.com/)
-- [IsaacSim 官方文档](https://docs.omniverse.nvidia.com/isaacsim/)
-
-### Agilebot Isaac 生态仓库
-- [agilebot_isaac_usd_assets](https://github.com/sh-agilebot/agilebot_isaac_usd_assets) - 机器人数字资产仓库（USD 文件、网格、纹理）
-- [agilebot_isaac_lab](https://github.com/sh-agilebot/agilebot_isaac_lab) - IsaacLab 环境和训练示例
-- [agilebot_isaac_sim](https://github.com/sh-agilebot/agilebot_isaac_sim) - 当前仓库，IsaacSim 集成
-
----
-
-## 🤝 贡献
-
-欢迎提交 Issue 和 Pull Request！
-
----
-
-## 📄 许可证
-
-本项目采用 [Apache License 2.0](LICENSE) 许可证。详见 LICENSE 文件。
-
----
-
-## 🙏 致谢
-
-本项目部分相机支架设计参考了 [MetaIsaacGrasp](https://github.com/YitianShi/MetaIsaacGrasp)，采用 MIT 许可证。
-
----
-
-<div align="center">
-
-**[上海捷勃特机器人有限公司](https://www.sh-agilebot.com/)**
-
-© 2025 Shanghai Agilebot Robotics Ltd. All rights reserved.
-
-</div>
