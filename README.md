@@ -268,16 +268,13 @@ When encountering problems, please:
 
 
 
+
 ### ✅ Released Features (v0.0.1)
 
 - [x] Agilebot IsaacSim Integration Framework Initial Release
 - [x] Agilebot Robot Core Control Code
 - [x] RMPflow Motion Policy Configuration for gbt-c5a, gbt-c7a, gbt-c12a, gbt-c16a
 - [x] Example Demos:
-  - Stacking Task
-  - Pick and Place Task
-  - Target Following Task
-  - Target Following with Forward Kinematics Verification
 - [x] MoveIt 2 Integration with ROS 2 Humble
 - [x] Pick and Place with Wrist Camera Demo (complete workflow and video recording)
 - [x] Bilingual Documentation (English/Chinese)
@@ -286,8 +283,6 @@ When encountering problems, please:
 
 - [ ] 2D grasping demo: Simulation grasping based on 2D vision
 - [ ] 3D grasping demo: Simulation grasping based on 3D vision
-
----
 
 ## � License
 

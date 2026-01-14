@@ -268,16 +268,13 @@ python -m agilebot_integration.demos.stacking
 
 
 
+
 ### ✅ 已发布功能 (v0.0.1)
 
 - [x] Agilebot IsaacSim 集成初始发布
 - [x] Agilebot 机器人的核心集成代码
 - [x] gbt-c5a、gbt-c7a、gbt-c12a、gbt-c16a 的 RMPflow 运动控制配置
 - [x] 示例演示：
-  - 堆垛任务
-  - 抓取放置任务
-  - 跟随目标任务
-  - 带正运动学验证的跟随目标任务
 - [x] 带 ROS 2 Humble 的 MoveIt 2 集成示例
 - [x] 带有手腕相机的抓取放置任务演示，演示完整的抓取放置任务流程和视频录制
 - [x] 双语种文档（英文/中文）
@@ -286,8 +283,6 @@ python -m agilebot_integration.demos.stacking
 
 - [ ] 2D 抓取演示：基于2D视觉的仿真抓取
 - [ ] 3D 抓取演示：基于3D视觉的仿真抓取
-
----
 
 ## 📄 许可证
 
