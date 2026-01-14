@@ -12,7 +12,7 @@
 
 ---
 
-[中文](./README_CN.md) | **[English](./README.md)**
+**[中文](./README_CN.md)** | [English](./README.md)
 
 
 ---
@@ -284,13 +284,9 @@ When encountering problems, please:
 - [ ] 2D grasping demo: Simulation grasping based on 2D vision
 - [ ] 3D grasping demo: Simulation grasping based on 3D vision
 
-<<<<<<< HEAD
 ---
 
 ## 📄 License
-=======
-## � License
->>>>>>> 7564acc57c605a750119078f99591a678827cdc2
 
 This project is licensed under the Apache 2.0 License. See [LICENSE](./LICENSE) file for details.
 
