@@ -78,87 +78,156 @@ def extract_planned_features(changelog_content):
     return planned_items
 
 
-def generate_planned_section_english(planned_items):
-    """Generate English planned section for README."""
-    if not planned_items:
+def extract_added_features(changelog_content):
+    """Extract added features from the latest released version in CHANGELOG.
+
+    Looks for content under '### Added' or '### 新增' in the first version section.
+    Returns a tuple of (added_items, version_number).
+    """
+    version_pattern = r'## \[(\d+\.\d+\.\d+)\].*?(?=\n## \[|\Z)'
+    version_match = re.search(version_pattern, changelog_content, re.DOTALL)
+
+    if not version_match:
+        print("⚠️  Warning: No version section found in CHANGELOG")
+        return None
+
+    version_number = version_match.group(1)
+    version_content = version_match.group(0)
+
+    added_pattern_en = r'### Added\s*\n(.*?)(?=\n### |\Z)'
+    added_pattern_cn = r'### 新增\s*\n(.*?)(?=\n### |\Z)'
+
+    added_match = re.search(added_pattern_en, version_content, re.DOTALL)
+    if not added_match:
+        added_match = re.search(added_pattern_cn, version_content, re.DOTALL)
+
+    if not added_match:
+        print(f"⚠️  Warning: '### Added' or '### 新增' section not found in [{version_number}]")
+        return None
+
+    added_text = added_match.group(1)
+    added_items = re.findall(r'^-\s+(.+)$', added_text, re.MULTILINE)
+
+    return added_items, version_number
+
+
+def generate_roadmap_section_english(added_items, version):
+    """Generate English roadmap section for README."""
+    if not added_items:
         return ""
 
-    section = "\n## 🚀 Upcoming Features\n\n"
-    section += "> This section is automatically synchronized from [CHANGELOG.md](./docs/CHANGELOG.md)\n\n"
+    section = f"\n### ✅ Released Features (v{version})\n\n"
 
-    for item in planned_items:
-        section += f"- {item.strip()}\n"
+    for item in added_items:
+        section += f"- [x] {item.strip()}\n"
 
     return section
 
 
-def generate_planned_section_chinese(planned_items):
-    """Generate Chinese planned section for README_cn."""
-    if not planned_items:
+def generate_roadmap_section_chinese(added_items, version):
+    """Generate Chinese roadmap section for README_cn."""
+    if not added_items:
         return ""
 
-    section = "\n## 🚀 即将推出的功能\n\n"
-    section += "> 本部分从 [CHANGELOG_CN.md](./docs/CHANGELOG_CN.md) 自动同步\n\n"
+    section = f"\n### ✅ 已发布功能 (v{version})\n\n"
 
-    for item in planned_items:
-        section += f"- {item.strip()}\n"
+    for item in added_items:
+        section += f"- [x] {item.strip()}\n"
 
     return section
 
 
-def update_readme(readme_path, planned_items, is_chinese=False):
-    """Update README file with planned features.
+def update_roadmap(readme_path, added_items, version, is_chinese=False):
+    """Update README file with released features in roadmap.
 
     Args:
         readme_path: Path to the README file
-        planned_items: List of planned feature strings
+        added_items: List of added feature strings
+        version: Version number string
         is_chinese: Whether the README is Chinese version
     """
     content = read_file(readme_path)
     if not content:
         return False
 
-    # Find and replace existing planned section
+    # Find and replace existing roadmap section
     if is_chinese:
         # Chinese version
-        pattern = r'## 🚀 即将推出的功能.*?(?=\n## \w+|\Z)'
-        replacement = generate_planned_section_chinese(planned_items) if planned_items else ""
+        pattern = rf'### ✅ 已发布功能 \(v{re.escape(version)}\).*?(?=\n### |\n## |\Z)'
+        replacement = generate_roadmap_section_chinese(added_items, version) if added_items else ""
     else:
         # English version
-        pattern = r'## 🚀 Upcoming Features.*?(?=\n## \w+|\Z)'
-        replacement = generate_planned_section_english(planned_items) if planned_items else ""
+        pattern = rf'### ✅ Released Features \(v{re.escape(version)}\).*?(?=\n### |\n## |\Z)'
+        replacement = generate_roadmap_section_english(added_items, version) if added_items else ""
 
     # Remove trailing whitespace before next section
     if replacement:
-        replacement = replacement.rstrip() + "\n\n"
+        replacement = replacement.rstrip() + "\n"
 
     new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
 
-    # If no planned section exists, find where to insert it
-    if new_content == content and planned_items:
-        # Find position to insert (before "📁 项目结构" or "📁 Project Structure")
+    # If no roadmap section exists, find where to insert it
+    if new_content == content and added_items:
+        # Find position to insert (after "License" section)
         if is_chinese:
-            insert_marker = "## 📁 项目结构"
+            insert_marker = "## 🤝 如何贡献"
         else:
-            insert_marker = "## 📁 Project Structure"
+            insert_marker = "## 🤝 How to Contribute"
 
         insert_pos = content.find(insert_marker)
         if insert_pos != -1:
-            section_to_insert = generate_planned_section_chinese(planned_items) if is_chinese else generate_planned_section_english(planned_items)
-            new_content = content[:insert_pos] + section_to_insert + content[insert_pos:]
+            section_to_insert = generate_roadmap_section_chinese(added_items, version) if is_chinese else generate_roadmap_section_english(added_items, version)
+            new_content = content[:insert_pos] + "\n" + section_to_insert + content[insert_pos:]
         else:
-            print(f"⚠️  Warning: Could not find insertion point in {readme_path}")
+            print(f"⚠️  Warning: Could not find roadmap insertion point in {readme_path}")
             return False
-    elif not planned_items:
-        print("ℹ️  No planned features found in CHANGELOG files")
+    elif not added_items:
+        print("ℹ️  No added features found in CHANGELOG")
         return True
+
+    return write_file(readme_path, new_content)
+
+
+def update_roadmap_planned(readme_path, planned_items, is_chinese=False):
+    """Update README file roadmap section with planned features from CHANGELOG.
+
+    Args:
+        readme_path: Path to the README file
+        planned_items: List of planned feature strings from CHANGELOG
+        is_chinese: Whether the README is Chinese version
+    """
+    content = read_file(readme_path)
+    if not content:
+        return False
+
+    if is_chinese:
+        # Chinese version - find ### 🚧 开发中 section in 开发路线图
+        pattern = r'### 🚧 开发中\n(.*?)(?=\n### |\n## |\Z)'
+        if planned_items:
+            replacement = "### 🚧 开发中\n\n"
+            for item in planned_items:
+                replacement += f"- [ ] {item.strip()}\n"
+            replacement = replacement.rstrip() + "\n"
+        else:
+            replacement = "### 🚧 开发中\n\n- （暂无计划）\n"
+    else:
+        # English version - find ### 🚧 In Development section in Development Roadmap
+        pattern = r'### 🚧 In Development\n(.*?)(?=\n### |\n## |\Z)'
+        if planned_items:
+            replacement = "### 🚧 In Development\n\n"
+            for item in planned_items:
+                replacement += f"- [ ] {item.strip()}\n"
+            replacement = replacement.rstrip() + "\n"
+        else:
+            replacement = "### 🚧 In Development\n\n- (No planned features)\n"
+
+    new_content = re.sub(pattern, replacement, content, flags=re.DOTALL)
 
     return write_file(readme_path, new_content)
 
 
 def main():
     """Main synchronization function."""
-    # Get repository root directory (parent of .github)
     script_dir = os.path.dirname(os.path.abspath(__file__))
     repo_root = os.path.dirname(os.path.dirname(script_dir))
     docs_dir = os.path.join(repo_root, 'docs')
@@ -172,50 +241,83 @@ def main():
     print(f"📁 Repository root: {repo_root}")
     print(f"📁 Docs directory: {docs_dir}\n")
 
-    # Check which CHANGELOG files exist
-    changelog_exists = False
-    if os.path.exists(changelog_en_path):
-        print("✅ Found CHANGELOG.md (English)")
-        changelog_exists = True
-    if os.path.exists(changelog_cn_path):
-        print("✅ Found CHANGELOG_CN.md (Chinese)")
-        changelog_exists = True
+    en_exists = os.path.exists(changelog_en_path)
+    cn_exists = os.path.exists(changelog_cn_path)
     
-    if not changelog_exists:
+    if not en_exists and not cn_exists:
         print("❌ Error: Neither CHANGELOG.md nor CHANGELOG_CN.md found")
         sys.exit(1)
 
-    # Read CHANGELOG (prefer English, fallback to Chinese)
-    changelog_content = read_file(changelog_en_path)
-    if not changelog_content:
-        changelog_content = read_file(changelog_cn_path)
-        if not changelog_content:
-            print("❌ Error: Could not read any CHANGELOG file")
-            sys.exit(1)
-        print("ℹ️  Using CHANGELOG_CN.md (Chinese version)")
-        is_using_chinese = True
+    en_roadmap_success = True
+    en_roadmap_planned_success = True
+    cn_roadmap_success = True
+    cn_roadmap_planned_success = True
+    
+    if en_exists:
+        print("✅ Found CHANGELOG.md (English)")
+        changelog_en_content = read_file(changelog_en_path)
+        if changelog_en_content:
+            added_result = extract_added_features(changelog_en_content)
+            if added_result:
+                added_items_en, version_en = added_result
+                print(f"📋 Found {len(added_items_en)} released feature(s) in CHANGELOG.md v{version_en}:")
+                for i, item in enumerate(added_items_en, 1):
+                    print(f"   {i}. {item.strip()}")
+                print(f"\n🔄 Updating Development Roadmap in README.md (English)...")
+                en_roadmap_success = update_roadmap(readme_en_path, added_items_en, version_en, is_chinese=False)
+            else:
+                print("ℹ️  No released features found in CHANGELOG.md")
+
+            planned_items_en = extract_planned_features(changelog_en_content)
+            if planned_items_en:
+                print(f"\n📋 Found {len(planned_items_en)} planned feature(s) in CHANGELOG.md:")
+                for i, item in enumerate(planned_items_en, 1):
+                    print(f"   {i}. {item.strip()}")
+                print("\n🔄 Updating Development Roadmap - Planned section in README.md (English)...")
+                en_roadmap_planned_success = update_roadmap_planned(readme_en_path, planned_items_en, is_chinese=False)
+            else:
+                print("ℹ️  No planned features found in CHANGELOG.md")
+        else:
+            print("⚠️  Could not read CHANGELOG.md")
+            en_roadmap_success = False
+            en_roadmap_planned_success = False
     else:
-        is_using_chinese = False
+        print("⚠️  CHANGELOG.md not found")
 
-    # Extract planned features
-    planned_items = extract_planned_features(changelog_content)
+    if cn_exists:
+        print("\n✅ Found CHANGELOG_CN.md (Chinese)")
+        changelog_cn_content = read_file(changelog_cn_path)
+        if changelog_cn_content:
+            added_result = extract_added_features(changelog_cn_content)
+            if added_result:
+                added_items_cn, version_cn = added_result
+                print(f"📋 Found {len(added_items_cn)} released feature(s) in CHANGELOG_CN.md v{version_cn}:")
+                for i, item in enumerate(added_items_cn, 1):
+                    print(f"   {i}. {item.strip()}")
+                print(f"\n🔄 Updating 开发路线图 in README_CN.md (Chinese)...")
+                cn_roadmap_success = update_roadmap(readme_cn_path, added_items_cn, version_cn, is_chinese=True)
+            else:
+                print("ℹ️  No released features found in CHANGELOG_CN.md")
 
-    if not planned_items:
-        print("ℹ️  No planned features found. Nothing to synchronize.")
-        print("✅ Synchronization completed (no changes needed)")
-        return
+            planned_items_cn = extract_planned_features(changelog_cn_content)
+            if planned_items_cn:
+                print(f"\n📋 Found {len(planned_items_cn)} planned feature(s) in CHANGELOG_CN.md:")
+                for i, item in enumerate(planned_items_cn, 1):
+                    print(f"   {i}. {item.strip()}")
+                print("\n🔄 Updating 开发路线图 - 计划中 section in README_CN.md (Chinese)...")
+                cn_roadmap_planned_success = update_roadmap_planned(readme_cn_path, planned_items_cn, is_chinese=True)
+            else:
+                print("ℹ️  No planned features found in CHANGELOG_CN.md")
+        else:
+            print("⚠️  Could not read CHANGELOG_CN.md")
+            cn_roadmap_success = False
+            cn_roadmap_planned_success = False
+    else:
+        print("⚠️  CHANGELOG_CN.md not found")
 
-    print(f"📋 Found {len(planned_items)} planned feature(s) in CHANGELOG:")
-    for i, item in enumerate(planned_items, 1):
-        print(f"   {i}. {item.strip()}")
-
-    # Update README files
-    print("\n🔄 Updating README files...")
-    en_success = update_readme(readme_en_path, planned_items, is_chinese=False)
-    cn_success = update_readme(readme_cn_path, planned_items, is_chinese=True)
-
-    if not (en_success and cn_success):
-        print("❌ Failed to update README files")
+    if not (en_roadmap_success and en_roadmap_planned_success and 
+            cn_roadmap_success and cn_roadmap_planned_success):
+        print("\n❌ Failed to update README files")
         sys.exit(1)
 
     print("\n✅ Synchronization completed successfully!")

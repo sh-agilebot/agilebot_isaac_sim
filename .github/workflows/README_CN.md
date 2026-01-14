@@ -86,8 +86,8 @@ git push
 .github/
 ├── workflows/
 │   ├── sync-changelog.yml      # GitHub Action 工作流定义
-│   ├── README.md             # 英文说明（本文件）
-│   └── README_CN.md          # 中文说明
+│   ├── README.md             # 英文说明
+│   └── README_CN.md          # 中文说明（本文件）
 └── scripts/
     └── sync_changelog.py         # 同步脚本
 ```

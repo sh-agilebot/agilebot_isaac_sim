@@ -10,8 +10,8 @@
 ## [未发布]
 
 ### 计划中
-- 2D 抓取demo
-- 3D 抓取demo
+- 2D 抓取演示：基于2D视觉的仿真抓取
+- 3D 抓取演示：基于3D视觉的仿真抓取
 
 ---
 
@@ -27,19 +27,9 @@
   - 跟随目标任务
   - 带正运动学验证的跟随之目标任务
 - 带 ROS 2 Humble 的 MoveIt 2 集成示例
-- 基于相机的抓取任务，支持视频录制
+- 带有手腕相机的抓取放置任务演示，演示完整的抓取放置任务流程和视频录制
 - 双语种文档（英文/中文）
-- Apache License 2.0
-- Isaac Sim 环境配置英文版文档（`isaacsim_environment_setup.md`）
-- README 中的实用小贴士章节：
-  - URDF 导入碰撞体丢失问题（Isaac Sim 5.1）
-  - 独立项目设置指南及示例参考
-  - GUI 无响应故障排除（网络资源加载）
-- 演示文档中的运行环境要求章节
-- 演示脚本运行前的故障排除指南
-- 项目配置文件（`.gitignore`、`CHANGELOG.md`、`CHANGELOG_CN.md`）
-- 用于 CHANGELOG 同步的 GitHub Actions 工作流
-- 包含文档和自动化脚本的 `.github` 目录结构
+
 
 ### 变更
 - 更新了 Isaac Sim 环境配置文档至 5.1 版本：

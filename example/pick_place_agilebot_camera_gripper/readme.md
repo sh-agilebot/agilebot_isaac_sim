@@ -47,7 +47,7 @@ python pick_place_example.py
 
 The program will automatically:
 1. Launch Isaac Sim simulation environment
-2. Load the robot and camera
+2. Load the robotic arm, wrist camera, and gripper
 3. Execute the pick-and-place task
 4. Record RGB video to `saved_images/captured_video_rgb.mp4`
 

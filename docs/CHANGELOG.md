@@ -10,36 +10,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Planned
-- 2D grasping demo
-- 3D grasping demo
+- 2D grasping demo: Simulation grasping based on 2D vision
+- 3D grasping demo: Simulation grasping based on 3D vision
 
 ---
 
 ## [0.0.1] - 2025-01-09
 
 ### Added
-- Initial release of Agilebot IsaacSim Integration
-- Core integration code for Agilebot robots
-- RMPflow motion control configurations for gbt-c5a, gbt-c7a, gbt-c12a, gbt-c16a
-- Demo examples:
-  - Stacking task
-  - Pick and Place task
-  - Follow Target task
-  - Follow Target with FK Verification
-- MoveIt 2 integration example with ROS 2 Humble
-- Camera-based grasping task with video recording support
-- Bilingual documentation (English/Chinese)
-- Apache License 2.0
-- English version of Isaac Sim environment configuration guide (`isaacsim_environment_setup.md`)
-- Helpful tips section in README:
-  - URDF import collision mesh loss issue (Isaac Sim 5.1)
-  - Independent project setup guide with example reference
-  - GUI unresponsive troubleshooting (network resource loading)
-- Runtime requirements section in demos README
-- Pre-run troubleshooting guide for demo scripts
-- Project configuration files (`.gitignore`, `CHANGELOG.md`, `CHANGELOG_CN.md`)
-- GitHub Actions workflow for CHANGELOG synchronization
-- `.github` directory structure with documentation and automation scripts
+- Agilebot IsaacSim Integration Framework Initial Release
+- Agilebot Robot Core Control Code
+- RMPflow Motion Policy Configuration for gbt-c5a, gbt-c7a, gbt-c12a, gbt-c16a
+- Example Demos:
+  - Stacking Task
+  - Pick and Place Task
+  - Target Following Task
+  - Target Following with Forward Kinematics Verification
+- MoveIt 2 Integration with ROS 2 Humble
+- Pick and Place with Wrist Camera Demo (complete workflow and video recording)
+- Bilingual Documentation (English/Chinese)
 
 ### Changed
 - Updated Isaac Sim environment setup guide for version 5.1:

@@ -138,9 +138,9 @@ sudo apt install -y cudnn-cuda-12
 
 3. 验证结果示例：
 
-![](assets/download.png)
+![](../assets/download.png)
 
-![](assets/compatibility.png)
+![](../assets/compatibility.png)
 ---
 
 ## 安装 Miniforge
@@ -178,7 +178,7 @@ cd ~/isaacsim
 
 4. 在弹出的界面中选择 `Isaac Sim Full`，等待启动
 
-![](assets/download.png)
+![](../assets/download.png)
 ### 2. Python 包安装（pip）【推荐】
 
 > ⚠️ **要求**: Python 3.11，GLIBC ≥ 2.34
@@ -211,10 +211,7 @@ isaacsim isaacsim.exp.full.kit
 
 **成功启动页面示例：**
 
-![](assets/isaacsim.png)
-**成功启动页面**
-
-![](assets/isaacsim.png)
+![](../assets/isaacsim.png)
 ---
 
 ## 安装 VS Code
@@ -282,9 +279,7 @@ python scripts/tutorials/00_sim/create_empty.py
 
 **Isaac Lab 界面示例：**
 
-![](assets/isaaclab.png)
-
-![alt text](assets/isaaclab.png)
+![](../assets/isaaclab.png)
 
 
 
