@@ -1,4 +1,4 @@
-# GBT Robot Examples
+# AGILEBOT Examples
 
 <div align="center">
 
