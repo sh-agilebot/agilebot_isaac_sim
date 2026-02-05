@@ -1,12 +1,14 @@
-# 带有相机和夹爪的机器人数字资产
+# 手腕相机抓取任务示例
 
 <div align="center">
 
-**[🔙 返回主文档](../../README.md)**
+**[🔙 返回主文档](../../README_CN.md)**
 
 ---
 
-English | **[🇨🇳 中文文档](#)**
+[English](./README.md) | **[🇨🇳 中文文档](#)**
+
+---
 
 </div>
 
@@ -20,21 +22,15 @@ English | **[🇨🇳 中文文档](#)**
 
 ## 主要文件
 
-- `pick_place_example.py` - 主程序入口，启动仿真并执行抓取放置任务
-- `video_recorder.py` - 视频录制模块，使用多进程实现非阻塞录制
-- `controllers/pick_place.py` - 抓取放置控制器
-- `tasks/pick_place.py` - 抓取放置任务定义
-- `usd/gbt_c5a_camera_gripper/gbt_c5a_camera_gripper.usd` - 机器人数字资产文件（包含机器人、相机和夹爪的完整模型）
+| 文件 | 描述 |
+|------|------|
+| `pick_place.py` | 主程序入口，启动仿真并执行抓取放置任务 |
+| `video_recorder.py` | 视频录制模块，使用多进程实现非阻塞录制 |
+| `controllers/pick_place.py` | 抓取放置控制器 |
+| `tasks/pick_place.py` | 抓取放置任务定义 |
+| `usd/gbt-c5a_camera_gripper/gbt-c5a_camera_gripper.usd` | 机器人数字资产文件（包含机器人、相机和夹爪的完整模型） |
 
 ## 使用方法
-
-### 配置
-
-运行程序前，请确保在 [tasks/pick_place.py](./tasks/pick_place.py#L65) 中正确配置了机器人资源路径：
-
-
-
-如果路径不同，请修改此绝对路径以指向您的实际 `usd` 文件夹位置。
 
 ### 运行程序
 
@@ -42,7 +38,7 @@ English | **[🇨🇳 中文文档](#)**
 
 ```bash
 conda activate isaaclab
-python pick_place_example.py
+python pick_place.py
 ```
 
 程序将自动：
@@ -50,6 +46,8 @@ python pick_place_example.py
 2. 加载机械臂、手腕相机和夹爪
 3. 执行抓取放置任务
 4. 将 RGB 视频录制到 `saved_images/captured_video_rgb.mp4`
+
+> **注意**：该相机的视野范围看不到夹爪，如果用于训练 VLA (Vision-Language-Action) 模型，请注意该问题。
 
 ## 系统要求
 

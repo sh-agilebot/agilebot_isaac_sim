@@ -7,6 +7,25 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.2] - 2026-02-05
+
+### Fixed
+- **Wrist Camera Grasping Demo Texture Bug**: Fixed texture missing issue in wrist camera pick and place example by adding missing texture files (Image_Joint.png, Image_Link.png, Image_Logo.png) and updating USD asset path structure
+- Improved robot asset loading by updating USD path from `gbt_c5a_camera_gripper` to `gbt-c5a_camera_gripper` with proper texture binding
+
+### Changed
+- **Documentation Links**: Fixed navigation links in wrist camera grasping example documentation to point to correct language versions (README_CN.md now correctly links to main Chinese documentation)
+- **Code Organization**: Renamed main entry script from `pick_place_example.py` to `pick_place.py` for consistency
+- **URDF Configuration**: Renamed URDF file from `gbt-c5a.urdf` to `gbt-c5a_camera_gripper.urdf` to better reflect robot configuration
+- **Documentation Structure**: Improved formatting and organization in README files (added proper table structures, code formatting for dependencies, section hierarchy)
+- **Code Comments**: Enhanced code comments in `tasks/pick_place.py` for better maintainability and clarity
+
+
+### Added
+- **VLA Model Notes**: Added camera field of view limitation notes for VLA model training in both English and Chinese documentation
+
+---
+
 ## [Unreleased]
 
 ### Planned

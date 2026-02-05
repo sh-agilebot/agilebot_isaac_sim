@@ -1,11 +1,13 @@
 """
-Copyright © 2025 Agilebot Robotics Ltd. All rights reserved.
-Author: Desheng.Li, September 4, 2025
-Instruction:
-Implement pick and place functionality following Isaac Sim official tutorial. This file is the controller module that implements a PickPlaceController class for controlling robot pick and place actions.
-reference:
- https://docs.isaacsim.omniverse.nvidia.com/5.0.0/robot_setup_tutorials/tutorial_pickplace_example.html
+Copyright © 2016 Agilebot Robotics Ltd. All rights reserved.
 
+Pick and Place Controller Module
+
+This module implements the PickPlaceController class which controls the robot's
+pick and place actions using the RMPFlow motion planning algorithm.
+
+Reference:
+    https://docs.isaacsim.omniverse.nvidia.com/5.0.0/robot_setup_tutorials/tutorial_pickplace_example.html
 """
 
 import isaacsim.robot.manipulators.controllers as manipulators_controllers
@@ -15,6 +17,14 @@ from controllers.rmpflow_controller import RMPFlowController
 
 
 class PickPlaceController(manipulators_controllers.PickPlaceController):
+    """
+    Controller for pick and place operations using RMPFlow motion planning.
+
+    This controller extends the Isaac Sim PickPlaceController to provide
+    pick and place functionality with configurable timing for each stage
+    of the manipulation task.
+    """
+
     def __init__(
         self,
         name: str,
@@ -23,19 +33,33 @@ class PickPlaceController(manipulators_controllers.PickPlaceController):
         events_dt=None,
         end_effector_initial_height: float | None = None,
     ) -> None:
+        """
+        Initialize the pick and place controller.
+
+        Args:
+            name: Name of the controller.
+            gripper: Parallel gripper instance for end effector control.
+            robot_articulation: Robot articulation object.
+            events_dt: Time deltas for each stage of the pick and place task.
+                       Defaults to a predefined sequence of timing values.
+            end_effector_initial_height: Initial height of the end effector.
+        """
         if events_dt is None:
+            # Default timing configuration for pick and place stages
             events_dt = [
-                0.005,
-                0.002,
-                1,
-                0.05,
-                0.0008,
-                0.005,
-                0.0008,
-                0.1,
-                0.0008,
-                0.008,
+                0.005,   # Approach pick
+                0.002,   # Lift after pick
+                1,       # Hold at pick
+                0.05,    # Move to place
+                0.0008,  # Approach place
+                0.005,   # Lift after place
+                0.0008,  # Retreat from place
+                0.1,     # Hold at place
+                0.0008,  # Final retreat
+                0.008,   # End of task
             ]
+
+        # Initialize parent class with RMPFlow controller for motion planning
         manipulators_controllers.PickPlaceController.__init__(
             self,
             name=name,

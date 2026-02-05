@@ -1,4 +1,4 @@
-# Robot Digital Asset with Camera and Gripper
+# Pick and Place Task Example with Wrist Camera
 
 <div align="center">
 
@@ -8,61 +8,57 @@
 
 **[🇨🇳 中文文档](./README_CN.md)** | English
 
+---
+
 </div>
 
-This is a robot digital asset provided by Shanghai Agilebot Robotics Ltd., including a robot, camera, and gripper, along with a complete grasping test program.
-
----
+A wrist camera pick and place task example provided by Shanghai Agilebot Robotics Co., Ltd. This project includes a complete digital asset package featuring a robot arm with wrist-mounted camera and gripper, along with pick and place task implementation and video recording functionality.
 
 ## Features
 
-- **Robot Digital Asset**: Complete robot model including robotic arm and gripper
-- **Grasping Test Program**: Complete pick-and-place task implementation based on Isaac Sim
-- **Video Recording**: Supports RGB video recording (30fps) using multiprocessing for non-blocking performance
+- **Robot Digital Asset**: Complete robot model including manipulator arm and gripper
+- **Pick and Place Demo**: Full implementation based on Isaac Sim
+- **Video Recording**: RGB video recording support (30fps) using non-blocking multiprocessing
 
 ## Main Files
 
-- `pick_place_example.py` - Main program entry point, launches simulation and executes pick-and-place task
-- `video_recorder.py` - Video recording module using multiprocessing for non-blocking recording
-- `controllers/pick_place.py` - Pick-and-place controller
-- `tasks/pick_place.py` - Pick-and-place task definition
-- `usd/gbt_c5a_camera_gripper/gbt_c5a_camera_gripper.usd` - Robot digital asset file (complete model with robot, camera, and gripper)
+| File | Description |
+|------|-------------|
+| `pick_place.py` | Main entry point - launches simulation and executes pick and place task |
+| `video_recorder.py` | Video recording module using multiprocessing for non-blocking operation |
+| `controllers/pick_place.py` | Pick and place controller |
+| `tasks/pick_place.py` | Pick and place task definition |
+| `usd/gbt-c5a_camera_gripper/gbt-c5a_camera_gripper.usd` | Robot digital asset (complete model with robot, camera, and gripper) |
 
 ## Usage
 
-### Configuration
-
-Before running the program, ensure the robot asset path is correctly configured in [tasks/pick_place.py](./tasks/pick_place.py#L65).
-
-If the path is different, modify this absolute path to point to your actual `usd` folder location.
-
 ### Running the Program
 
-Run the main program to start the simulation and pick-and-place task:
+Launch the simulation and execute the pick and place task:
 
 ```bash
 conda activate isaaclab
-python pick_place_example.py
+python pick_place.py
 ```
 
 The program will automatically:
-1. Launch Isaac Sim simulation environment
-2. Load the robotic arm, wrist camera, and gripper
-3. Execute the pick-and-place task
-4. Record RGB video to `saved_images/captured_video_rgb.mp4`
+1. Launch the Isaac Sim simulation environment
+2. Load the manipulator arm, wrist camera, and gripper
+3. Execute the pick and place task
+4. Save RGB video recording to `saved_images/captured_video_rgb.mp4`
+
+> **Note:** The camera's field of view does not include the gripper. If you are training a VLA (Vision-Language-Action) model, please be aware of this limitation.
 
 ## System Requirements
 
-- Isaac Sim
+- NVIDIA Isaac Sim
 - Python 3.x
-- Dependencies: numpy, opencv-python, open3d
+- Dependencies: `numpy`, `opencv-python`, `open3d`
 
-## Third-party Notice
+## Third-Party Notice
 
-This demo includes a camera mount adapted from
-[MetaIsaacGrasp](https://github.com/YitianShi/MetaIsaacGrasp),
-licensed under the MIT License.
+This demo includes a camera mount adapted from [MetaIsaacGrasp](https://github.com/YitianShi/MetaIsaacGrasp), licensed under the MIT License.
 
 ---
 
-**Shanghai Agilebot Robotics Ltd.** | Website: [https://www.sh-agilebot.com/](https://www.sh-agilebot.com/)
+**Shanghai Agilebot Robotics Co., Ltd.** | Website: [https://www.sh-agilebot.com/](https://www.sh-agilebot.com/)

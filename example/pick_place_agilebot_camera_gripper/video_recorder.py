@@ -1,10 +1,11 @@
 """
-Copyright © 2025 Agilebot Robotics Ltd. All rights reserved.
-Author: Desheng.Li, September 4, 2025
-Instruction:
+Copyright © 2016 Agilebot Robotics Ltd. All rights reserved.
 
 Video Recorder Module
-Handles video recording and visualization for camera data in a separate process
+
+This module handles video recording and visualization for camera data.
+It uses a separate process to enable non-blocking video recording during
+simulation.
 """
 import os
 import cv2
