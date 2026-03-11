@@ -26,6 +26,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [0.0.3] - 2026-03-11
+
+### Changed
+- **Example documentation notice**: Added copyright notices to the English and Chinese README files for `isaacsim_moveit` and `pick_place_agilebot_camera_gripper`, clarifying that the third-party component was removed and directing users to the [Agilebot USD Assets Repository](https://github.com/sh-agilebot/agilebot_isaac_usd_assets) for the latest USD models
+
+### Removed
+- **Third-party gripper assets**: Removed the bundled Robotiq gripper meshes, USD configurations, scene USD, and related texture/environment assets from `example/isaacsim_moveit` due to third-party gripper copyright restrictions
+- **Wrist camera gripper demo USD assets**: Removed the USD model and related texture assets containing the third-party gripper from `example/pick_place_agilebot_camera_gripper`
+- **Changelog sync automation**: Removed `.github/scripts/sync_changelog.py`, `.github/workflows/sync-changelog.yml`, and the related workflow documentation
+
+---
+
 ## [Unreleased]
 
 ### Planned

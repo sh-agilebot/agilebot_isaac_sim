@@ -64,6 +64,8 @@ cd ~/isaacsim
 3. 打开上述文件夹下的 `./gbt_c7a_moveit.usd`
 4. 点击 **Play** 按钮启动模拟
 
+> **小贴士：** 由于版权原因，第三方组件已删除，请等待用户自行组装的说明。您可以从 [Agilebot USD Assets 仓库](https://github.com/sh-agilebot/agilebot_isaac_usd_assets) 获取最新的 USD 模型。
+
 ---
 
 ## 4. 控制机器人

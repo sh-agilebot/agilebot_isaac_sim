@@ -30,6 +30,8 @@
 | `tasks/pick_place.py` | 抓取放置任务定义 |
 | `usd/gbt-c5a_camera_gripper/gbt-c5a_camera_gripper.usd` | 机器人数字资产文件（包含机器人、相机和夹爪的完整模型） |
 
+> **小贴士：** 由于版权原因，第三方组件已删除，请等待用户自行组装的说明。您可以从 [Agilebot USD Assets 仓库](https://github.com/sh-agilebot/agilebot_isaac_usd_assets) 获取最新的 USD 模型。
+
 ## 使用方法
 
 ### 运行程序

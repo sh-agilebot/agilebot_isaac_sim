@@ -65,6 +65,8 @@ cd ~/isaacsim
 3. Open `./gbt_c7a_moveit.usd` in the above folder
 4. Click **Play** button to start simulation
 
+> **Tip:** Due to copyright reasons, the third-party component has been removed. Please wait for the user self-assembly guide. You can obtain the latest USD models from the [Agilebot USD Assets Repository](https://github.com/sh-agilebot/agilebot_isaac_usd_assets).
+
 ---
 
 ## 4. Control Robot

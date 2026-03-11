@@ -25,6 +25,18 @@
 
 ---
 
+## [0.0.3] - 2026-03-11
+
+### 变更
+- **示例文档说明更新**：在 `isaacsim_moveit` 和 `pick_place_agilebot_camera_gripper` 两个示例的中英文 README 中补充版权提示，说明第三方组件已移除，并引导用户从 [Agilebot USD Assets 仓库](https://github.com/sh-agilebot/agilebot_isaac_usd_assets) 获取最新 USD 模型
+
+### 已移除
+- **第三方夹爪相关资源**：由于第三方夹爪版权原因，移除了 `example/isaacsim_moveit` 中随仓库分发的 Robotiq 夹爪网格、USD 配置、场景 USD 及相关纹理/环境资源
+- **手腕相机夹爪示例 USD 资源**：移除了 `example/pick_place_agilebot_camera_gripper` 中包含第三方夹爪的 USD 模型及关联纹理资源
+- **changelog 自动同步脚本与工作流**：移除了 `.github/scripts/sync_changelog.py`、`.github/workflows/sync-changelog.yml` 及对应说明文档
+
+---
+
 ## [未发布]
 
 ### 计划中

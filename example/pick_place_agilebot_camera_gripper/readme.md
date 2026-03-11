@@ -30,6 +30,8 @@ A wrist camera pick and place task example provided by Shanghai Agilebot Robotic
 | `tasks/pick_place.py` | Pick and place task definition |
 | `usd/gbt-c5a_camera_gripper/gbt-c5a_camera_gripper.usd` | Robot digital asset (complete model with robot, camera, and gripper) |
 
+> **Tip:** Due to copyright reasons, the third-party component has been removed. Please wait for the user self-assembly guide. You can obtain the latest USD models from the [Agilebot USD Assets Repository](https://github.com/sh-agilebot/agilebot_isaac_usd_assets).
+
 ## Usage
 
 ### Running the Program
