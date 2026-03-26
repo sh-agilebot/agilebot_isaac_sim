@@ -39,9 +39,22 @@
 
 ## [未发布]
 
-### 计划中
-- 2D 抓取演示：基于2D视觉的仿真抓取
-- 3D 抓取演示：基于3D视觉的仿真抓取
+## [0.0.4] - 2026-03-26
+
+### 新增
+- **集中式运行时配置**：新增 `config/robot_config.json`，集中管理机器人资源路径、prim名称、末端执行器框架、夹爪关节名称及相机参数
+- **配置加载模块**：新增 `config/runtime.py`，提供配置加载辅助函数，供主程序、任务、IK和RMPFlow控制器共享使用
+- **RMPFlow XRDF配置**：新增 `gbt_c5a_camera_gripper_robot_description.xrdf`，用于RMPFlow运动策略配置
+- **GitIgnore文件**：为手腕相机夹爪示例添加了 `.gitignore` 文件
+
+### 变更
+- **配置驱动架构**：重构 `pick_place.py`、`tasks/pick_place.py`、`controllers/ik_solver.py` 和 `controllers/rmpflow_controller.py`，改为从 `config/robot_config.json` 读取参数，而非硬编码
+- **RMPFlow模板系统**：从静态的 `gbt_c5a_rmpflow_common.yaml` 改为动态模板系统，根据 `config/robot_config.json` 在运行时自动生成临时YAML文件
+- **文档更新**：更新 README.md，添加配置管理说明，解释如何通过 `robot_config.json` 自定义机器人参数
+- **IK求解器文档**：增强 `ik_solver.py` 的文档字符串，提高可维护性和可读性
+
+### 已移除
+- **静态RMPFlow YAML**：移除 `gbt_c5a_rmpflow_common.yaml`，已被动态模板系统取代
 
 ---
 

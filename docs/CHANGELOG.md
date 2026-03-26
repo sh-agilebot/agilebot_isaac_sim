@@ -40,9 +40,22 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Planned
-- 2D grasping demo: Simulation grasping based on 2D vision
-- 3D grasping demo: Simulation grasping based on 3D vision
+## [0.0.4] - 2026-03-26
+
+### Added
+- **Centralized Runtime Configuration**: Added `config/robot_config.json` to centrally manage robot asset paths, prim names, end effector frame, gripper joint names, and camera parameters
+- **Configuration Loading Module**: Added `config/runtime.py` providing helper functions for configuration loading, shared across main program, tasks, IK, and RMPFlow controllers
+- **RMPFlow XRDF Configuration**: Added `gbt_c5a_camera_gripper_robot_description.xrdf` for RMPFlow motion policy configuration
+- **GitIgnore**: Added `.gitignore` file for the wrist camera gripper example
+
+### Changed
+- **Configuration-Driven Architecture**: Refactored `pick_place.py`, `tasks/pick_place.py`, `controllers/ik_solver.py`, and `controllers/rmpflow_controller.py` to read parameters from `config/robot_config.json` instead of hardcoding
+- **RMPFlow Template System**: Changed from static `gbt_c5a_rmpflow_common.yaml` to dynamic template system that generates temporary YAML at runtime based on `config/robot_config.json`
+- **Documentation**: Updated README.md with configuration management documentation, explaining how to customize robot parameters via `robot_config.json`
+- **IK Solver Documentation**: Enhanced docstrings in `ik_solver.py` for better maintainability and clarity
+
+### Removed
+- **Static RMPFlow YAML**: Removed `gbt_c5a_rmpflow_common.yaml` as it has been replaced by the dynamic template system
 
 ---
 
