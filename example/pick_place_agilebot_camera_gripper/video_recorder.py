@@ -9,7 +9,6 @@ simulation.
 """
 import os
 import cv2
-import open3d as o3d
 import numpy as np
 from multiprocessing import Process, Queue, Event
 import time
@@ -25,7 +24,8 @@ def depth_to_pointcloud(depth, rgb, intrinsic):
         intrinsic: np.ndarray, shape=(3,3), camera intrinsic matrix
     
     Returns:
-        pcd: open3d.geometry.PointCloud
+        points: np.ndarray, shape=(N,3), point cloud coordinates
+        colors: np.ndarray, shape=(N,3), point cloud colors
     """
     fx, fy = intrinsic[0, 0], intrinsic[1, 1]
     cx, cy = intrinsic[0, 2], intrinsic[1, 2]
@@ -60,12 +60,7 @@ def depth_to_pointcloud(depth, rgb, intrinsic):
     points = points[final_mask]
     colors = colors[final_mask]
 
-    # Construct open3d point cloud
-    pcd = o3d.geometry.PointCloud()
-    pcd.points = o3d.utility.Vector3dVector(points)
-    pcd.colors = o3d.utility.Vector3dVector(colors)
-
-    return pcd
+    return points, colors
 
 
 def create_pointcloud_visualization(depth_image, rgb_image, intrinsic_matrix):
@@ -81,9 +76,7 @@ def create_pointcloud_visualization(depth_image, rgb_image, intrinsic_matrix):
         pointcloud_img: np.ndarray, pointcloud visualization image
     """
     try:
-        point_cloud = depth_to_pointcloud(depth_image, rgb_image, intrinsic_matrix)
-        points = np.asarray(point_cloud.points)
-        colors = np.asarray(point_cloud.colors)
+        points, colors = depth_to_pointcloud(depth_image, rgb_image, intrinsic_matrix)
         
         # Project 3D points back to 2D image using camera intrinsics
         fx, fy = intrinsic_matrix[0, 0], intrinsic_matrix[1, 1]
@@ -216,13 +209,13 @@ class VideoRecorder:
         
         Args:
             video_fps: Video frame rate (default: 30)
-            save_dir: Directory to save videos (default: ./saved_images)
+            save_dir: Directory to save videos (default: ./saved_videos)
         """
         self.video_fps = video_fps
         
         if save_dir is None:
             current_file_dir = os.path.dirname(os.path.abspath(__file__))
-            self.save_dir = os.path.join(current_file_dir, "saved_images")
+            self.save_dir = os.path.join(current_file_dir, "saved_videos")
         else:
             self.save_dir = save_dir
         

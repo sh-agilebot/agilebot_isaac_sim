@@ -12,6 +12,12 @@ Reference:
 
 import os
 import isaacsim.robot_motion.motion_generation as mg
+from runtime_config import (
+    build_rmpflow_config_path,
+    get_end_effector_frame_name,
+    get_robot_description_path,
+    get_urdf_path,
+)
 from isaacsim.core.prims import Articulation
 
 
@@ -40,19 +46,10 @@ class RMPFlowController(mg.MotionPolicyController):
         """
         # Initialize RMPFlow motion policy with robot description files
         self.rmpflow = mg.lula.motion_policies.RmpFlow(
-            robot_description_path=os.path.join(
-                os.path.dirname(__file__),
-                "../rmpflow/gbt_c5a_camera_gripper_robot_description.yaml"
-            ),
-            urdf_path=os.path.join(
-                os.path.dirname(__file__),
-                "../rmpflow/gbt-c5a_camera_gripper.urdf"
-            ),
-            rmpflow_config_path=os.path.join(
-                os.path.dirname(__file__),
-                "../rmpflow/gbt_c5a_rmpflow_common.yaml"
-            ),
-            end_effector_frame_name="robotiq_arg2f_base_link",
+            robot_description_path=get_robot_description_path(),
+            urdf_path=get_urdf_path(),
+            rmpflow_config_path=build_rmpflow_config_path(),
+            end_effector_frame_name=get_end_effector_frame_name(),
             maximum_substep_size=0.00334,
         )
 

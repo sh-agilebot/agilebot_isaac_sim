@@ -88,5 +88,5 @@ body_cylinders:
       pt2: [0,0,0.]
       radius: .2
 body_collision_controllers:
-    - name: robotiq_arg2f_base_link
+    - name: __END_EFFECTOR_FRAME_NAME__
       radius: .05

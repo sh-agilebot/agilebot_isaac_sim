@@ -19,9 +19,18 @@ simulation_app = SimulationApp({"headless": False})
 import numpy as np
 import os
 
+from runtime_config import (
+    get_camera_prim_name_candidates,
+    get_camera_resolution,
+    get_robot_root_prim_path,
+)
 from isaacsim.core.api import World
 from controllers.pick_place import PickPlaceController
-from tasks.pick_place import PickPlaceTask
+from tasks.pick_place import (
+    PickPlaceTask,
+    find_descendant_camera_prim_path,
+    resolve_robot_usd_path,
+)
 from omni.isaac.sensor import Camera
 from video_recorder import VideoRecorder
 
@@ -29,7 +38,7 @@ from video_recorder import VideoRecorder
 my_world = World(stage_units_in_meters=1.0, physics_dt=1 / 120)
 
 # Set robot USD file path
-usd_path = os.path.join(os.path.dirname(__file__), "usd/gbt-c5a_camera_gripper/gbt-c5a_camera_gripper.usd")
+usd_path = resolve_robot_usd_path()
 
 # Configure target placement position
 target_position = np.array([-0.3, 0.6, 0])
@@ -68,9 +77,12 @@ my_controller: PickPlaceController = PickPlaceController(
 articulation_controller = my_gbt_c5a.get_articulation_controller()
 
 # Configure camera
-# Camera prim path must match the USD file structure
-camera_path = "/World/gbt_c5a_camera_gripper/link6/flange/camera_mount/Orbbec/camera_rgb/camera_rgb"
-camera_width, camera_height = 1280, 720
+# Resolve the actual Camera prim from the loaded USD instead of hard-coding one layout.
+camera_path = find_descendant_camera_prim_path(
+    get_robot_root_prim_path(),
+    get_camera_prim_name_candidates(),
+)
+camera_width, camera_height = get_camera_resolution()
 camera = Camera(prim_path=camera_path, resolution=(camera_width, camera_height))
 camera.initialize()
 camera.add_distance_to_image_plane_to_frame()  # Enable depth annotation

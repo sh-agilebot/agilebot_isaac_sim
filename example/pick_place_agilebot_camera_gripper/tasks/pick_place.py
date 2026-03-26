@@ -17,13 +17,89 @@ from typing import Optional
 
 import isaacsim.core.api.tasks as tasks
 import numpy as np
+from runtime_config import (
+    get_end_effector_prim_name_candidates,
+    get_gripper_joint_prim_names,
+    get_robot_root_prim_path,
+    get_usd_candidate_paths,
+)
 from isaacsim.core.api.objects import DynamicCuboid
 from isaacsim.core.api.scenes.scene import Scene
 from isaacsim.core.utils.prims import is_prim_path_valid
-from isaacsim.core.utils.stage import add_reference_to_stage
+from isaacsim.core.utils.stage import add_reference_to_stage, get_current_stage, update_stage
 from isaacsim.core.utils.string import find_unique_string_name
 from isaacsim.robot.manipulators.grippers import ParallelGripper
 from isaacsim.robot.manipulators.manipulators import SingleManipulator
+
+
+def resolve_robot_usd_path(explicit_usd_path: Optional[str] = None) -> str:
+    """Resolve the robot USD asset path from known local candidates."""
+    if explicit_usd_path is not None:
+        return explicit_usd_path
+
+    candidate_paths = get_usd_candidate_paths()
+    for candidate_path in candidate_paths:
+        if os.path.exists(candidate_path):
+            return candidate_path
+
+    raise FileNotFoundError(
+        "Could not find robot asset. Checked: "
+        + ", ".join(candidate_paths)
+    )
+
+
+def find_descendant_prim_path(root_prim_path: str, prim_name_candidates: list[str]) -> str:
+    """Find the first descendant prim whose name matches one of the candidates."""
+    stage = get_current_stage()
+    root_prim = stage.GetPrimAtPath(root_prim_path)
+    if not root_prim.IsValid():
+        raise RuntimeError(f"Root prim does not exist: {root_prim_path}")
+
+    for prim in stage.Traverse():
+        prim_path = str(prim.GetPath())
+        if not prim_path.startswith(f"{root_prim_path}/"):
+            continue
+        if prim.GetName() in prim_name_candidates:
+            return prim_path
+
+    raise RuntimeError(
+        f"Could not find prim under {root_prim_path}. "
+        f"Tried names: {prim_name_candidates}"
+    )
+
+
+def find_descendant_camera_prim_path(
+    root_prim_path: str, prim_name_candidates: Optional[list[str]] = None
+) -> str:
+    """Find a descendant Camera prim, optionally preferring specific names."""
+    stage = get_current_stage()
+    root_prim = stage.GetPrimAtPath(root_prim_path)
+    if not root_prim.IsValid():
+        raise RuntimeError(f"Root prim does not exist: {root_prim_path}")
+
+    camera_candidates: list[str] = []
+    fallback_cameras: list[str] = []
+
+    for prim in stage.Traverse():
+        prim_path = str(prim.GetPath())
+        if not prim_path.startswith(f"{root_prim_path}/"):
+            continue
+        if prim.GetTypeName() != "Camera":
+            continue
+        if prim_name_candidates and prim.GetName() in prim_name_candidates:
+            camera_candidates.append(prim_path)
+        else:
+            fallback_cameras.append(prim_path)
+
+    if camera_candidates:
+        return camera_candidates[0]
+    if fallback_cameras:
+        return fallback_cameras[0]
+
+    raise RuntimeError(
+        f"Could not find a Camera prim under {root_prim_path}. "
+        f"Preferred names: {prim_name_candidates}"
+    )
 
 
 class PickPlaceTask(tasks.PickPlace):
@@ -67,10 +143,10 @@ class PickPlaceTask(tasks.PickPlace):
             cube_size=cube_size,
         )
 
-        # Root prim path must contain the robot in the world
-        self.root_prim_path = "/World"
-        self._usd_path = usd_path
-        self.end_effector_prim_path = f"{self.root_prim_path}/gbt_c5a_camera_gripper/robotiq_arg2f_base_link"
+        # Root prim path is where the robot USD reference is inserted.
+        self.root_prim_path = get_robot_root_prim_path()
+        self._usd_path = resolve_robot_usd_path(usd_path)
+        self.end_effector_prim_path = None
         return
 
     def set_robot(self) -> SingleManipulator:
@@ -81,27 +157,24 @@ class PickPlaceTask(tasks.PickPlace):
             SingleManipulator: The configured robot manipulator instance.
         """
         # Use provided USD path or fall back to default
-        if self._usd_path is not None:
-            asset_path = self._usd_path
-        else:
-            asset_root_path = os.path.join(os.path.dirname(__file__), "../usd")
-            if asset_root_path is None:
-                raise Exception("Could not find Isaac Sim assets folder")
-            asset_path = os.path.join(
-                asset_root_path,
-                "gbt-c5a_camera_gripper/gbt-c5a_camera_gripper.usd"
-            )
+        asset_path = self._usd_path
 
         # Load robot asset into the scene
         if os.path.exists(asset_path):
             add_reference_to_stage(usd_path=asset_path, prim_path=self.root_prim_path)
+            update_stage()
         else:
             raise Exception(f"Could not find robot asset at {asset_path}")
+
+        self.end_effector_prim_path = find_descendant_prim_path(
+            self.root_prim_path,
+            get_end_effector_prim_name_candidates(),
+        )
 
         # Configure parallel gripper
         gripper = ParallelGripper(
             end_effector_prim_path=self.end_effector_prim_path,
-            joint_prim_names=["finger_joint"],
+            joint_prim_names=get_gripper_joint_prim_names(),
             joint_opened_positions=np.array([0]),
             joint_closed_positions=np.array([40]),
             action_deltas=np.array([-40]),
