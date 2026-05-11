@@ -13,7 +13,6 @@
 **演示如何使用 MoveIt 2 控制 Isaac Sim 中带有 Robotiq 2F-140 夹爪的捷勃特 (GBT) C5A 机器人。**
 
 ![机器人演示](https://via.placeholder.com/800x450.png?text=GBT+C5A+Isaac+Sim+MoveIt+2+Demonstration)
-*占位图：请在此处添加机器人运行的 GIF 或截图。*
 
 </div>
 
@@ -120,5 +119,4 @@ source /opt/ros/humble_ws/install/setup.bash # 请根据实际安装路径修改
 - [MoveIt 2 Documentation](https://moveit.picknik.ai/humble/index.html)
 
 ---
-
 

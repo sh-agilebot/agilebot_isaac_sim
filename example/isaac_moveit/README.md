@@ -13,7 +13,6 @@ English | **[中文说明](README.zh-CN.md)**
 **Demonstration of controlling a GBT C5A robot with a Robotiq 2F-140 gripper in Isaac Sim using MoveIt 2.**
 
 ![Robot Demonstration](https://via.placeholder.com/800x450.png?text=GBT+C5A+Isaac+Sim+MoveIt+2+Demonstration)
-*Placeholder: Add a GIF or screenshot of the robot in action here.*
 
 </div>
 
@@ -88,4 +87,3 @@ The conversion tool handles URDF import, camera mounting, physics configuration,
 - [MoveIt 2 Documentation](https://moveit.picknik.ai/humble/index.html)
 
 ---
-
