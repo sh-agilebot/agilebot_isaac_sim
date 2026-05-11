@@ -1,0 +1,15 @@
+# Third-party Robotiq meshes are user-supplied and should not be published.
+/meshes/visual/robotiq_arg2f_*.stl
+/meshes/collision/robotiq_arg2f_*.stl
+
+# Isaac Sim generated USD output should not be published.
+/urdf/gbt-c5a_wrist_camera_gripper/
+
+
+fiind_camera_light_mount_point.py
+
+# vscode
+.vscode
+
+# pycache
+__pycache__

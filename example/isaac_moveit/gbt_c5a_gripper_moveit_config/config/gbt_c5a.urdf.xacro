@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="gbt_c5a">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import gbt_c5a urdf file -->
+    <xacro:include filename="$(find gbt_c5a_gripper_description)/urdf/gbt_c5a.urdf" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="gbt_c5a.ros2_control.xacro" />
+
+
+    <xacro:gbt_c5a_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

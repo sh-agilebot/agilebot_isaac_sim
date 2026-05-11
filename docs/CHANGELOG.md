@@ -40,6 +40,13 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.0.5] - 2026-05-11
+
+### Removed
+- **Third-party gripper STL files**: Removed bundled third-party gripper STL files from the repository. Users now need to download the required STL assets manually.
+
+---
+
 ## [0.0.4] - 2026-03-26
 
 ### Added

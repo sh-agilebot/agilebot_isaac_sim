@@ -67,7 +67,7 @@ agilebot_isaac_sim/
 ├── assets/                       # USD assets, meshes, and texture files
 ├── docs/                         # Documentation, installation guides, and tutorials
 ├── example/                      # Standalone example projects
-│   ├── isaacsim_moveit/          # ROS 2 + MoveIt integration example
+│   ├── isaac_moveit/             # ROS 2 + MoveIt integration example
 │   │   └── gbt_c7a_moveit.usd
 │   └── pick_place_agilebot_camera_gripper/  # Wrist camera grasping and video recording
 │       ├── pick_place_example.py
@@ -190,7 +190,7 @@ This repository provides comprehensive demonstration examples covering multiple 
 
 **Detailed Documentation:**
 - 📖 **[GBT Robot Examples Documentation](./agilebot_integration/demos/README.md)** - Complete guide for all demonstration examples
-- 🔧 **[MoveIt Integration Guide](./example/isaacsim_moveit/README.md)** - ROS 2 + MoveIt control tutorial
+- 🔧 **[MoveIt Integration Guide](./example/isaac_moveit/README.md)** - ROS 2 + MoveIt control tutorial
 - 📷 **[Wrist Camera Grasping Task Guide](./example/pick_place_agilebot_camera_gripper/README.md)** - Pick & place task and video recording implementation
 
 ---

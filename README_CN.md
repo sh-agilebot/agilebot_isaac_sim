@@ -12,7 +12,7 @@
 
 ---
 
-[中文](#) | **[English](./README.md)**
+[中文](./README_CN.md) | **[English](./README.md)**
 
 
 ---
@@ -66,7 +66,7 @@ agilebot_isaac_sim/
 ├── assets/                       # USD 资产、网格和纹理文件
 ├── docs/                         # 文档、安装指南和教程
 ├── example/                      # 独立示例项目
-│   ├── isaacsim_moveit/          # ROS 2 + MoveIt 集成示例
+│   ├── isaac_moveit/             # ROS 2 + MoveIt 集成示例
 │   │   └── gbt_c7a_moveit.usd
 │   └── pick_place_agilebot_camera_gripper/  # 手腕相机抓取与视频记录
 │       ├── pick_place_example.py
@@ -189,7 +189,7 @@ python -m agilebot_integration.demos.stacking
 
 **详细文档：**
 - 📖 **[GBT Robot Examples 文档](./agilebot_integration/demos/README_CN.md)** - 所有演示示例的完整指南
-- 🔧 **[MoveIt 集成指南](./example/isaacsim_moveit/README_CN.md)** - ROS 2 + MoveIt 控制教程
+- 🔧 **[MoveIt 集成指南](./example/isaac_moveit/README.zh-CN.md)** - ROS 2 + MoveIt 控制教程
 - 📷 **[手腕相机抓取示例文档](./example/pick_place_agilebot_camera_gripper/README_CN.md)** - 抓取放置任务与视频记录的实现说明
 
 ---
